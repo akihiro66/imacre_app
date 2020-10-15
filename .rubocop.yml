@@ -1,0 +1,20 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'bin/**'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'vendor/**/**/*'
+    - 'spec/*'
+    - "node_modules/**/*"
+
+Airbnb/OptArgParameters:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
