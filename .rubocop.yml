@@ -24,3 +24,12 @@ Style/MutableConstant:
 
 Style/ColonMethodCall:
   Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Layout/FirstHashElementLineBreak:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false

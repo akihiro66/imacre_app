@@ -16,12 +16,16 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 
 gem 'bootstrap-sass'
+# ダミーデータの生成
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop-airbnb'
+  # モデルに関するテストデータ作成用
+  gem 'factory_bot_rails'
 end
 
 group :development do
