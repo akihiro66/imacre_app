@@ -18,3 +18,18 @@ Airbnb/OptArgParameters:
 
 Style/MixinUsage:
   Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Layout/FirstHashElementLineBreak:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
