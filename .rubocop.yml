@@ -21,3 +21,6 @@ Style/MixinUsage:
 
 Style/MutableConstant:
   Enabled: false
+
+Style/ColonMethodCall:
+  Enabled: false
