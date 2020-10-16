@@ -15,6 +15,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # ログイン機能
 gem 'devise'
 
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
