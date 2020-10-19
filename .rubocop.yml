@@ -33,3 +33,6 @@ Layout/FirstHashElementLineBreak:
 
 Style/TrailingCommaInHashLiteral:
   Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
