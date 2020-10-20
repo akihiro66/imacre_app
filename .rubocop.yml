@@ -5,6 +5,7 @@ Rails:
   Enabled: true
 
 AllCops:
+  TargetRubyVersion: 2.6
   Exclude:
     - 'bin/**'
     - 'config/**/*'
@@ -35,4 +36,7 @@ Style/TrailingCommaInHashLiteral:
   Enabled: false
 
 Rails/HelperInstanceVariable:
+  Enabled: false
+
+Lint/AssignmentInCondition:
   Enabled: false
