@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Production, type: :model do
+  let!(:production_yesterday) { create(:production, :yesterday) }
+  let!(:production_one_week_ago) { create(:production, :one_week_ago) }
+  let!(:production_one_month_ago) { create(:production, :one_month_ago) }
   let!(:production) { create(:production) }
 
   context "バリデーション" do
@@ -48,6 +51,12 @@ RSpec.describe Production, type: :model do
       production = build(:production, popularity: 6)
       production.valid?
       expect(production.errors[:production]).to include("は5以下の値にしてください")
+    end
+
+    context "並び順" do
+      it "最も最近の投稿が最初の投稿になっていること" do
+        expect(production).to eq Production.first
+      end
     end
   end
 end
