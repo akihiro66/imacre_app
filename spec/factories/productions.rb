@@ -1,13 +1,12 @@
 FactoryBot.define do
   factory :production do
-    name { "MyString" }
-    description { "MyText" }
+    name { Faker::Name.production }
+    description { "一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。" }
     material { 1.5 }
-    tips { "MyText" }
-    reference { "MyText" }
+    tips { "SPF材と杉材を組み合わせることで、コントラストをつけました" }
+    reference { "https://diy-recipe.com/recipe/3164/" }
     required_time { 1 }
-    popularity { 1 }
-    memo { "MyText" }
-    user { nil }
+    popularity { 5 }
+    association :user
   end
 end
