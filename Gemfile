@@ -18,6 +18,9 @@ gem 'devise'
 gem 'bootstrap-sass'
 # ダミーデータの生成
 gem 'faker'
+# ページネーション
+gem 'will_paginate',           '3.1.8'
+gem 'bootstrap-will_paginate', '1.0.0'
 
 group :development, :test do
   gem 'rspec-rails'
