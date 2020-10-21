@@ -40,3 +40,6 @@ Rails/HelperInstanceVariable:
 
 Lint/AssignmentInCondition:
   Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
