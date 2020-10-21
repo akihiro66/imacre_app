@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :production do
-    name { Faker::Name.production }
+    name { Faker::Commerce.product_name }
     description { "一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。" }
     material { 1.5 }
     tips { "SPF材と杉材を組み合わせることで、コントラストをつけました" }
@@ -8,7 +8,7 @@ FactoryBot.define do
     required_time { 1 }
     popularity { 5 }
     association :user
-    created_at { Time.current}
+    created_at { Time.current }
   end
 
   trait :yesterday do

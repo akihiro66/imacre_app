@@ -44,13 +44,13 @@ RSpec.describe Production, type: :model do
     it "人気度が1以上でなければ無効な状態であること" do
       production = build(:production, popularity: 0)
       production.valid?
-      expect(production.errors[:production]).to include("は1以上の値にしてください")
+      expect(production.errors[:popularity]).to include("は1以上の値にしてください")
     end
 
     it "人気度が5以下でなければ無効な状態であること" do
       production = build(:production, popularity: 6)
       production.valid?
-      expect(production.errors[:production]).to include("は5以下の値にしてください")
+      expect(production.errors[:popularity]).to include("は5以下の値にしてください")
     end
 
     context "並び順" do
