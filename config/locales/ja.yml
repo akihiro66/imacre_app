@@ -8,6 +8,17 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       user: ユーザー
+      production:
+        id: ID
+        name: 作品名
+        description: 説明
+        material: 材料費
+        tips: コツ・ポイント
+        reference: 作り方参照用URL
+        required_time: 所要時間
+        popularity: 人気度
+        user_id: 作成者のID
+        cook_memo: メモ
     attributes:
       user:
         id: ID
