@@ -171,7 +171,7 @@ input {
   }
 }
 
-/* 料理(Dish) */
+/* 作品(Production) */
 .productions {
   list-style: none;
   padding: 0;
@@ -238,4 +238,62 @@ span.picture {
 
 .input-unneed {
   font-size: 13px;
+}
+
+//// 作品個別ページ ////
+.production-user-name {
+  display: inline-block;
+}
+
+h2.production-name {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.production-reference {
+  margin-top: 30px;
+}
+
+.production-material {
+  margin-top: 30px;
+}
+
+.tips {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  h5 {
+    font-size: 17px;
+  }
+}
+
+.title-tips {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.show-production-other-info {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.production-other-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.production-info {
+  h5 {
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  h4 {
+    font-size: 20px;
+    display: inline-block;
+  }
 }

@@ -5,11 +5,15 @@ class ProductionsController < ApplicationController
     @production = Production.new
   end
 
+  def show
+    @production = Production.find(params[:id])
+  end
+
   def create
     @production = current_user.productions.build(production_params)
     if @production.save
       flash[:success] = "作品が登録されました！"
-      redirect_to root_url
+      redirect_to production_path(@production)
     else
       render 'productions/new'
     end

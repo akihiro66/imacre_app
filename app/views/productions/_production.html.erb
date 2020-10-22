@@ -1,6 +1,6 @@
 <li id="production-<%= production.id %>">
   <%= link_to gravatar_for(production.user, size: 50), production.user %>
-  <span class="name"><%= link_to production.name, "#" %></span>
+  <span class="name"><%= link_to production.name, production_path(production) %></span>
   <span class="description"><%= production.description %></span><br>
   <span class="required_time">所要時間：<%= production.required_time %>分 </span>
   <span class="popularity">人気度：<%= production.popularity %></span><br>

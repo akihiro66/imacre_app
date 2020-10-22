@@ -1,0 +1,19 @@
+<% provide(:title, "#{@production.name}") %>
+<div class="container">
+  <h2 class="production-name"><%= @production.name %></h2>
+  <h4><%= @production.description %></h4>
+  <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
+  <h4 class="production-material">材料費：<%= @production.material %> 円</h4>
+  <div class="tips">
+    <h5 class="title-tips">コツ・ポイント</h5>
+    <h5><%= @production.tips %></h5>
+  </div>
+  <div class="show-production-other-info">
+    <div class="production-info">
+      <h5>所要時間：</h5><h4><%= @production.required_time %></h4> <h5>時間</h5>
+    </div>
+    <div class="production-info">
+      <h5>人気度：</h5><h4><%= @production.popularity %></h4>
+    </div>
+  </div>
+</div>

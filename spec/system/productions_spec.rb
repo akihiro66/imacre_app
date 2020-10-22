@@ -21,7 +21,7 @@ RSpec.describe "Productions", type: :system do
       it "入力部分に適切なラベルが表示されること" do
         expect(page).to have_content '作品名'
         expect(page).to have_content '説明'
-        expect(page).to have_content '材料費 [材料費]'
+        expect(page).to have_content '材料費 [円]'
         expect(page).to have_content 'コツ・ポイント'
         expect(page).to have_content '作り方参照用URL'
         expect(page).to have_content '所要時間 [時間]'
