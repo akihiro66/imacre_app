@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Productions", type: :system do
   let!(:user) { create(:user) }
+  let!(:production) { create(:production, user: user) }
 
   describe "作品登録ページ" do
     before do
@@ -53,6 +54,29 @@ RSpec.describe "Productions", type: :system do
         fill_in "人気度", with: 5
         click_button "登録する"
         expect(page).to have_content "作品名を入力してください"
+      end
+    end
+  end
+
+  describe "作品詳細ページ" do
+    context "ページレイアウト" do
+      before do
+        login_for_system(user)
+        visit production_path(production)
+      end
+
+      it "正しいタイトルが表示されること" do
+        expect(page).to have_title full_title("#{production.name}")
+      end
+
+      it "作品情報が表示されること" do
+        expect(page).to have_content production.name
+        expect(page).to have_content production.description
+        expect(page).to have_content production.material
+        expect(page).to have_content production.tips
+        expect(page).to have_content production.reference
+        expect(page).to have_content production.required_time
+        expect(page).to have_content production.popularity
       end
     end
   end

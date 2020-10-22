@@ -26,7 +26,7 @@ RSpec.describe "作品登録", type: :request do
                                                        popularity: 5 } }
       }.to change(Production, :count).by(1)
       follow_redirect!
-      expect(response).to render_template('static_pages/home')
+      expect(response).to render_template('productions/show')
     end
 
     it "無効な作品データでは登録できないこと" do
