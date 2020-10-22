@@ -1,5 +1,6 @@
 class ProductionsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @production = Production.new
@@ -38,5 +39,11 @@ class ProductionsController < ApplicationController
     def production_params
       params.require(:production).permit(:name, :description, :material, :tips,
                                          :reference, :required_time, :popularity, :memo)
+    end
+
+    def correct_user
+      # 現在のユーザーが更新対象の作品を保有しているかどうか確認
+      @production = current_user.productions.find_by(id: params[:id])
+      redirect_to root_url if @production.nil?
     end
 end
