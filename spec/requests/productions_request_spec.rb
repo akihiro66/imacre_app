@@ -5,10 +5,40 @@ RSpec.describe "作品登録", type: :request do
   let!(:production) { create(:production, user: user) }
 
   context "ログインしているユーザーの場合" do
-    it "レスポンスが正常に表示されること" do
+    before do
       login_for_request(user)
       get new_production_path
+    end
+
+    it "レスポンスが正常に表示されること" do
       expect(response).to have_http_status "200"
+      expect(response).to render_template('productions/new')
+    end
+
+    it "有効な作品データで登録できること" do
+      expect {
+        post productions_path, params: { production: { name: "アンティークテーブル",
+                                                       description: "一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。", # rubocop:disable Metrics/LineLength
+                                                       material: 1.5,
+                                                       tips: "SPF材と杉材を組み合わせることで、コントラストをつけました",
+                                                       reference: "https://diy-recipe.com/recipe/3164/", # rubocop:disable Metrics/LineLength
+                                                       required_time: 1,
+                                                       popularity: 5 } }
+      }.to change(Production, :count).by(1)
+      follow_redirect!
+      expect(response).to render_template('static_pages/home')
+    end
+
+    it "無効な作品データでは登録できないこと" do
+      expect {
+        post productions_path, params: { production: { name: "",
+                                                       description: "一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。", # rubocop:disable Metrics/LineLength
+                                                       material: 1.5,
+                                                       tips: "SPF材と杉材を組み合わせることで、コントラストをつけました",
+                                                       reference: "https://diy-recipe.com/recipe/3164/", # rubocop:disable Metrics/LineLength
+                                                       required_time: 1,
+                                                       popularity: 5 } }
+      }.not_to change(Production, :count)
       expect(response).to render_template('productions/new')
     end
   end

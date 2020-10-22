@@ -46,3 +46,6 @@ Layout/IndentationWidth:
 
 Airbnb/DefaultScope:
   Enabled: false
+
+Layout/IndentationConsistency:
+  Enabled: false
