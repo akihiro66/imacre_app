@@ -58,6 +58,58 @@ RSpec.describe "Productions", type: :system do
     end
   end
 
+  describe "作品編集ページ" do
+    before do
+      login_for_system(user)
+      visit production_path(production)
+      click_link "編集"
+    end
+
+    context "ページレイアウト" do
+      it "正しいタイトルが表示されること" do
+        expect(page).to have_title full_title('作品情報の編集')
+      end
+
+      it "入力部分に適切なラベルが表示されること" do
+        expect(page).to have_content '作品名'
+        expect(page).to have_content '説明'
+        expect(page).to have_content '材料費 [円]'
+        expect(page).to have_content 'コツ・ポイント'
+        expect(page).to have_content '作り方参照用URL'
+        expect(page).to have_content '所要時間 [時間]'
+        expect(page).to have_content '人気度 [1~5]'
+      end
+    end
+
+    context "作品の更新処理" do
+      it "有効な更新" do
+        fill_in "作品名", with: "編集：アンティークテーブル"
+        fill_in "説明", with: "編集：一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。"
+        fill_in "材料費", with: 10000
+        fill_in "コツ・ポイント", with: "編集：SPF材と杉材を組み合わせることで、コントラストをつけました"
+        fill_in "作り方参照用URL", with: "https://diy-recipe.com/recipe/3164/5"
+        fill_in "所要時間", with: 2
+        fill_in "人気度", with: 3
+        click_button "更新する"
+        expect(page).to have_content "作品情報が更新されました！"
+        expect(production.reload.name).to eq "編集：アンティークテーブル"
+        expect(production.reload.description).to eq "編集：一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。"
+        expect(production.reload.material).to eq 10000
+        expect(production.reload.tips).to eq "編集：SPF材と杉材を組み合わせることで、コントラストをつけました"
+        expect(production.reload.reference).to eq "https://diy-recipe.com/recipe/3164/5"
+        expect(production.reload.required_time).to eq 2
+        expect(production.reload.popularity).to eq 3
+      end
+
+      it "無効な更新" do
+        fill_in "作品名", with: ""
+        click_button "更新する"
+        expect(page).to have_content '作品名を入力してください'
+        expect(production.reload.name).not_to eq ""
+      end
+    end
+  end
+
   describe "作品詳細ページ" do
     context "ページレイアウト" do
       before do

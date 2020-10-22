@@ -19,10 +19,24 @@ class ProductionsController < ApplicationController
     end
   end
 
+  def edit
+    @production = Production.find(params[:id])
+  end
+
+  def update
+    @production = Production.find(params[:id])
+    if @production.update(production_params)
+      flash[:success] = "作品情報が更新されました！"
+      redirect_to @production
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def production_params
-      params.require(:production).permit(:name, :discription, :material, :tips,
+      params.require(:production).permit(:name, :description, :material, :tips,
                                          :reference, :required_time, :popularity, :memo)
     end
 end

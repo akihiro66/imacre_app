@@ -1,6 +1,11 @@
 <% provide(:title, "#{@production.name}") %>
 <div class="container">
   <h2 class="production-name"><%= @production.name %></h2>
+  <div class="change-production">
+    <% if current_user == @production.user %>
+      <%= link_to "編集", edit_production_path(@production), class: 'edit-production' %>
+    <% end %>
+  </div>
   <h4><%= @production.description %></h4>
   <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
   <h4 class="production-material">材料費：<%= @production.material %> 円</h4>
