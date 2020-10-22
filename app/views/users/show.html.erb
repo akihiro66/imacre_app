@@ -17,4 +17,15 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-9">
+      <% if @user.productions.any? %>
+        <h3>作品 (<%= @user.productions.count %>)</h3>
+        <ol class="productions">
+          <%= render @productions %>
+        </ol>
+        <%= will_paginate @productions %>
+      <% end %>
+    </div>
+  </div>
 </div>
