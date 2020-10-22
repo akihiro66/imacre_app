@@ -1,0 +1,14 @@
+<li id="production-<%= production.id %>">
+  <%= link_to gravatar_for(production.user, size: 50), production.user %>
+  <span class="name"><%= link_to production.name, production_path(production) %></span>
+  <span class="description"><%= production.description %></span><br>
+  <span class="required_time">所要時間：<%= production.required_time %>分 </span>
+  <span class="popularity">人気度：<%= production.popularity %></span><br>
+  <span class="reference"><%= link_to "作り方", production.reference, target: :_blank %></span>
+  <span class="timestamp">
+    <%= time_ago_in_words(production.created_at) %>前に投稿
+  </span>
+  <% if current_user.admin? || (current_user == production.user) %>
+    <%= link_to "削除", production_path(production), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
+</li>

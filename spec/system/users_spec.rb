@@ -122,6 +122,7 @@ RSpec.describe "Users", type: :system do
     context "ページレイアウト" do
       before do
         login_for_system(user)
+        create_list(:production, 10, user: user)
         visit user_path(user)
       end
 
@@ -141,6 +142,20 @@ RSpec.describe "Users", type: :system do
 
       it "プロフィール編集ページへのリンクが表示されていることを確認" do
       expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+      end
+
+      it "作品の件数が表示されていることを確認" do
+        Production.take(5).each do |production|
+          expect(page).to have_link production.name
+          expect(page).to have_content production.description
+          expect(page).to have_content production.user.name
+          expect(page).to have_content production.required_time
+          expect(page).to have_content production.popularity
+        end
+      end
+
+      it "作品のページネーションが表示されていることを確認" do
+        expect(page).to have_css "div.pagination"
       end
     end
   end

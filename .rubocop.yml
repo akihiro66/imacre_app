@@ -43,3 +43,9 @@ Lint/AssignmentInCondition:
 
 Layout/IndentationWidth:
   Enabled: false
+
+Airbnb/DefaultScope:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  Enabled: false

@@ -1,5 +1,19 @@
-<center>
-  <h1>イマクリへようこそ！</h1>
-  <h2>あなたの想像を創造しませんか？</h2>
-  <p>趣味をお金に変えよう！</p>
-</center>
+<% if logged_in? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3>みんなの作品 (<%= @feed_items.count %>)</h3>
+        <%= render 'shared/feed' %>
+      </div>
+      <div class="col-md-3">
+        <p><%= link_to "新しい作品を作る", new_production_path, class: "btn btn-primary btn-lg btn-record" %></p>
+  	  </div>
+    </div>
+  </div>
+<% else %>
+  <center>
+    <h1>イマクリへようこそ！</h1>
+    <h2>あなたの想像を創造しませんか？</h2>
+    <p>趣味をお金に変えよう！</p>
+  </center>
+<% end %>
