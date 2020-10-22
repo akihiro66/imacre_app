@@ -19,6 +19,10 @@ RSpec.describe "StaticPages", type: :system do
         let!(:user) { create(:user) }
         let!(:production) { create(:production, user: user) }
 
+        before do
+          login_for_system(user)
+        end
+
         it "作品のページネーションが表示されること" do
           login_for_system(user)
           create_list(:production, 6, user: user)
@@ -28,6 +32,11 @@ RSpec.describe "StaticPages", type: :system do
           Production.take(5).each do |d|
             expect(page).to have_link d.name
           end
+        end
+
+        it "「新しい作品を作る」リンクが表示されること" do
+         visit root_path
+         expect(page).to have_link "新しい作品を作る", href: new_production_path
         end
       end
     end
