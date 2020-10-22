@@ -1,5 +1,12 @@
-<center>
-  <h1>イマクリへようこそ！</h1>
-  <h2>あなたの想像を創造しませんか？</h2>
-  <p>趣味をお金に変えよう！</p>
-</center>
+<% if logged_in? %>
+  <div class="container">
+    <h3>みんなの作品 (<%= @feed_items.count %>)</h3>
+    <%= render 'shared/feed' %>
+  </div>
+<% else %>
+  <center>
+    <h1>イマクリへようこそ！</h1>
+    <h2>あなたの想像を創造しませんか？</h2>
+    <p>趣味をお金に変えよう！</p>
+  </center>
+<% end %>

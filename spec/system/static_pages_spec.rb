@@ -14,6 +14,22 @@ RSpec.describe "StaticPages", type: :system do
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title
       end
+
+      context "作品フィード", js: true do
+        let!(:user) { create(:user) }
+        let!(:production) { create(:production, user: user) }
+
+        it "作品のページネーションが表示されること" do
+          login_for_system(user)
+          create_list(:production, 6, user: user)
+          visit root_path
+          expect(page).to have_content "みんなの作品 (#{user.productions.count})"
+          expect(page).to have_css "div.pagination"
+          Production.take(5).each do |d|
+            expect(page).to have_link d.name
+          end
+        end
+      end
     end
   end
 
