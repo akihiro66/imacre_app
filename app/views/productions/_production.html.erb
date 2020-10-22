@@ -8,4 +8,7 @@
   <span class="timestamp">
     <%= time_ago_in_words(production.created_at) %>前に投稿
   </span>
+  <% if current_user.admin? || (current_user == production.user) %>
+    <%= link_to "削除", production_path(production), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
 </li>

@@ -33,6 +33,9 @@
           <%= f.text_field :popularity, class: 'form-control', id: 'production_popularity' %>
         </div>
         <%= f.submit "更新する", class: "btn btn-primary" %>
+        <p></p>
+        <%= link_to "作品を削除する", production_path(@production), method: :delete,
+                                    data: { confirm: "本当にこの作品を削除してよろしいですか？" } %>
       <% end %>
     </div>
   </div>

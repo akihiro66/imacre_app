@@ -108,6 +108,14 @@ RSpec.describe "Productions", type: :system do
         expect(production.reload.name).not_to eq ""
       end
     end
+
+    context "作品の削除処理", js: true do
+      it "削除成功のフラッシュが表示されること" do
+        click_on '削除'
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '作品が削除されました'
+      end
+    end
   end
 
   describe "作品詳細ページ" do
@@ -129,6 +137,18 @@ RSpec.describe "Productions", type: :system do
         expect(page).to have_content production.reference
         expect(page).to have_content production.required_time
         expect(page).to have_content production.popularity
+      end
+    end
+
+    context "作品の削除", js: true do
+      it "削除成功のフラッシュが表示されること" do
+        login_for_system(user)
+        visit production_path(production)
+        within find('.change-production') do
+          click_on '削除'
+        end
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '作品が削除されました'
       end
     end
   end

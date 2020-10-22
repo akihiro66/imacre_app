@@ -5,6 +5,10 @@
     <% if current_user == @production.user %>
       <%= link_to "編集", edit_production_path(@production), class: 'edit-production' %>
     <% end %>
+    <% if current_user.admin? || (current_user == @production.user) %>
+      <%= link_to "削除", production_path(@production), method: :delete, class: 'delete-production',
+                                                        data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
   </div>
   <h4><%= @production.description %></h4>
   <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
