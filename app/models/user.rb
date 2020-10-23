@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :productions, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
-                                  foreign_key: "follwer_id",
+                                  foreign_key: "follower_id",
                                   dependent: :destroy
   attr_accessor :remember_token
   before_save :downcase_email
