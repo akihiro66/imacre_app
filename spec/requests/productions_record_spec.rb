@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "作品登録", type: :request do
   let!(:user) { create(:user) }
   let!(:production) { create(:production, user: user) }
+  let(:picture_path) { File.join(Rails.root, 'spec/fixtures/test_production.jpg') }
+  let(:picture) { Rack::Test::UploadedFile.new(picture_path) }
 
   context "ログインしているユーザーの場合" do
     before do
@@ -24,7 +26,8 @@ RSpec.describe "作品登録", type: :request do
                                                        tips: "SPF材と杉材を組み合わせることで、コントラストをつけました",
                                                        reference: "https://diy-recipe.com/recipe/3164/", # rubocop:disable Metrics/LineLength
                                                        required_time: 1,
-                                                       popularity: 5 } }
+                                                       popularity: 5,
+                                                       picture: picture } }
       }.to change(Production, :count).by(1)
       follow_redirect!
       expect(response).to render_template('productions/show')
@@ -38,7 +41,8 @@ RSpec.describe "作品登録", type: :request do
                                                        tips: "SPF材と杉材を組み合わせることで、コントラストをつけました",
                                                        reference: "https://diy-recipe.com/recipe/3164/", # rubocop:disable Metrics/LineLength
                                                        required_time: 1,
-                                                       popularity: 5 } }
+                                                       popularity: 5,
+                                                       picture: picture } }
       }.not_to change(Production, :count)
       expect(response).to render_template('productions/new')
     end

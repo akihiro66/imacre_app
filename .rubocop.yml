@@ -49,3 +49,7 @@ Airbnb/DefaultScope:
 
 Layout/IndentationConsistency:
   Enabled: false
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'app/uploaders/*'

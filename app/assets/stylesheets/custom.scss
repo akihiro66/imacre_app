@@ -305,3 +305,9 @@ h2.production-name {
 .edit-production .delete-production {
   font-size: 15px;
 }
+
+.production-picture img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
