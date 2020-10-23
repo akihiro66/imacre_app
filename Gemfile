@@ -21,6 +21,10 @@ gem 'faker'
 # ページネーション
 gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
+# 画像投稿機能
+gem 'carrierwave', '~> 2.0'
+# 画像リサイズ機能
+gem "mini_magick"
 
 group :development, :test do
   gem 'rspec-rails'
@@ -29,6 +33,10 @@ group :development, :test do
   gem 'rubocop-airbnb'
   # モデルに関するテストデータ作成用
   gem 'factory_bot_rails'
+end
+
+group :production do
+ gem 'fog'
 end
 
 group :development do

@@ -1,28 +1,35 @@
 <% provide(:title, "#{@production.name}") %>
 <div class="container">
-  <h2 class="production-name"><%= @production.name %></h2>
-  <div class="change-production">
-    <% if current_user == @production.user %>
-      <%= link_to "編集", edit_production_path(@production), class: 'edit-production' %>
-    <% end %>
-    <% if current_user.admin? || (current_user == @production.user) %>
-      <%= link_to "削除", production_path(@production), method: :delete, class: 'delete-production',
-                                                        data: { confirm: "本当に削除しますか？" } %>
-    <% end %>
+  <div class="col-md-4">
+    <span class="picture">
+      <%= link_to((image_tag @production.picture.url), production_path(@production.id), class: 'production-picture') if @production.picture.url.present? %>
+    </span>
   </div>
-  <h4><%= @production.description %></h4>
-  <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
-  <h4 class="production-material">材料費：<%= @production.material %> 円</h4>
-  <div class="tips">
-    <h5 class="title-tips">コツ・ポイント</h5>
-    <h5><%= @production.tips %></h5>
-  </div>
-  <div class="show-production-other-info">
-    <div class="production-info">
-      <h5>所要時間：</h5><h4><%= @production.required_time %></h4> <h5>時間</h5>
+  <div class="col-md-8">
+    <h2 class="production-name"><%= @production.name %></h2>
+    <div class="change-production">
+      <% if current_user == @production.user %>
+        <%= link_to "編集", edit_production_path(@production), class: 'edit-production' %>
+      <% end %>
+      <% if current_user.admin? || (current_user == @production.user) %>
+        <%= link_to "削除", production_path(@production), method: :delete, class: 'delete-production',
+                                                          data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
     </div>
-    <div class="production-info">
-      <h5>人気度：</h5><h4><%= @production.popularity %></h4>
+    <h4><%= @production.description %></h4>
+    <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
+    <h4 class="production-material">材料費：<%= @production.material %> 円</h4>
+    <div class="tips">
+      <h5 class="title-tips">コツ・ポイント</h5>
+      <h5><%= @production.tips %></h5>
+    </div>
+    <div class="show-production-other-info">
+      <div class="production-info">
+        <h5>所要時間：</h5><h4><%= @production.required_time %></h4> <h5>時間</h5>
+      </div>
+      <div class="production-info">
+        <h5>人気度：</h5><h4><%= @production.popularity %></h4>
+      </div>
     </div>
   </div>
 </div>

@@ -50,7 +50,7 @@ class ProductionsController < ApplicationController
 
     def production_params
       params.require(:production).permit(:name, :description, :material, :tips,
-                                         :reference, :required_time, :popularity, :memo)
+                                         :reference, :required_time, :popularity, :memo, :picture)
     end
 
     def correct_user
