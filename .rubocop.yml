@@ -53,3 +53,6 @@ Layout/IndentationConsistency:
 Lint/UselessAssignment:
   Exclude:
     - 'app/uploaders/*'
+
+Airbnb/RiskyActiverecordInvocation:
+  Enabled: false
