@@ -77,6 +77,21 @@ class User < ApplicationRecord
     followers.include?(other_user)
   end
 
+  # 作品をお気に入りに登録する
+  def favorite(production)
+    Favorite.create!(user_id: id, production_id: production.id)
+  end
+
+  # 作品をお気に入り解除する
+  def unfavorite(production)
+    Favorite.find_by(user_id: id, production_id: production.id).destroy
+  end
+
+  # 現在のユーザーがお気に入り登録していたらtrueを返す
+  def favorite?(production)
+    !Favorite.find_by(user_id: id, production_id: production.id).nil?
+  end
+
   private
 
   def downcase_email
