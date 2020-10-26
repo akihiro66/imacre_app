@@ -6,7 +6,6 @@ RSpec.describe "通知機能", type: :request do
   let!(:production) { create(:production, user: user) }
   let!(:other_production) { create(:production, user: other_user) }
 
-
   context "通知一覧ページの表示" do
     context "ログインしているユーザーの場合" do
       before do
