@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    production_id { 1 }
     user_id { 1 }
-    content { "MyText" }
+    content { "作品に関しての質問等、気軽にコメント下さい！" }
+    association :production
   end
 end
