@@ -1,6 +1,7 @@
 class Production < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
@@ -14,6 +15,10 @@ class Production < ApplicationRecord
               :less_than_or_equal_to => 5,
             },
             allow_nil: true
+
+  def feed_comment(production_id)
+    Comment.where("production_id = ?", production_id)
+  end
 
   private
 
