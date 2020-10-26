@@ -5,3 +5,5 @@ require("channels")
 require('jquery')
 
 require("bootstrap/dist/js/bootstrap")
+
+window.$ = $;
