@@ -1,0 +1,14 @@
+<% @production = Production.find(favorite.production_id) %>
+<% user = @production.user %>
+<li id="favorite-<%= favorite.id %>">
+  <div class="row favorite-dish">
+    <div class="col-md-2">
+      <%= link_to((image_tag @production.picture.url), production_path(@production), class: 'production-picture') %>
+    </div>
+    <div class="col-md-7">
+      <p><%= link_to @production.name, production_path(@production) %></p>
+      <p><%= @production.description %></p>
+      <p class="create-user">created by <%= link_to user.name, user_path(user) %></p>
+    </div>
+  </div>
+</li>
