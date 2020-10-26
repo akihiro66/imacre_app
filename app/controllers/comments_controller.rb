@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
                                    from_user_id: current_user.id,
                                    content: @comment.content) # コメントは通知種別2
         @user.update_attribute(:notification, true)
+      end
     else
       flash[:danger] = "空のコメントは投稿できません。"
     end
