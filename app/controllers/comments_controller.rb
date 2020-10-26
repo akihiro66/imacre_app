@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
   def create
     @production = Production.find(params[:production_id])
     @user = @production.user
-    @comment = @production.comments.build(user_id: current_user.id, content: params[:comment][:content])
+    @comment = @production.comments.build(user_id: current_user.id,
+                                          content: params[:comment][:content])
     if !@production.nil? && @comment.save
       flash[:success] = "コメントを追加しました！"
     else
