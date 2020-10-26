@@ -16,6 +16,10 @@ class Production < ApplicationRecord
             },
             allow_nil: true
 
+  def feed_comment(production_id)
+    Comment.where("production_id = ?", production_id)
+  end
+
   private
 
     # アップロードされた画像のサイズを制限する
