@@ -22,6 +22,11 @@ class Production < ApplicationRecord
     Comment.where("production_id = ?", production_id)
   end
 
+  # 作品に付属するログのフィードを作成
+  def feed_log(production_id)
+    Log.where("production_id = ?", production_id)
+  end
+
   private
 
     # アップロードされた画像のサイズを制限する
