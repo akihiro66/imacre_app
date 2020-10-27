@@ -94,12 +94,11 @@ class User < ApplicationRecord
     !Favorite.find_by(user_id: id, production_id: production.id).nil?
   end
 
-  # 作品をリストに登録する
   def list(production)
     List.create!(user_id: production.user_id, production_id: production.id, from_user_id: id)
   end
 
-  # 作品をリストから解除する
+  # 料理をリストから解除する
   def unlist(list)
     list.destroy
   end
