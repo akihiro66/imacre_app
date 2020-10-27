@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :lists, dependent: :destroy
   attr_accessor :remember_token
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
@@ -91,6 +92,20 @@ class User < ApplicationRecord
   # 現在のユーザーがお気に入り登録していたらtrueを返す
   def favorite?(production)
     !Favorite.find_by(user_id: id, production_id: production.id).nil?
+  end
+
+  def list(production)
+    List.create!(user_id: production.user_id, production_id: production.id, from_user_id: id)
+  end
+
+  # 料理をリストから解除する
+  def unlist(list)
+    list.destroy
+  end
+
+  # 現在のユーザーがリスト登録してたらtrueを返す
+  def list?(production)
+    !List.find_by(production_id: production.id, from_user_id: id).nil?
   end
 
   private

@@ -1,0 +1,7 @@
+<%= link_to "/lists/#{@production.id}/create", method: :post, class: 'list', remote: true do %>
+  <% if current_user == @production.user %>
+    <div class="list-btn-list"><i class="fas fa-list-alt"></i> 制作予定リストに追加する</div>
+  <% else %>
+    <div class="list-btn-list"><i class="fas fa-hammer"></i> 制作依頼リクエストを送る</div>
+  <% end %>
+<% end %>

@@ -317,4 +317,79 @@ RSpec.describe "Users", type: :system do
       end
     end
   end
+
+  context "リスト登録/解除" do
+    before do
+      login_for_system(user)
+    end
+
+    it "作品のリスト登録/解除ができること" do
+      expect(user.list?(production)).to be_falsey
+      user.list(production)
+      expect(user.list?(production)).to be_truthy
+      user.unlist(List.first)
+      expect(user.list?(production)).to be_falsey
+    end
+
+    it "トップページからリスト登録/解除ができること", js: true do
+      visit root_path
+      link = find('.list')
+      expect(link[:href]).to include "/lists/#{production.id}/create"
+      link.click
+      link = find('.unlist')
+      expect(link[:href]).to include "/lists/#{List.first.id}/destroy"
+      link.click
+      link = find('.list')
+      expect(link[:href]).to include "/lists/#{production.id}/create"
+    end
+
+    it "ユーザー個別ページからリスト登録/解除ができること", js: true do
+      visit user_path(user)
+      link = find('.list')
+      expect(link[:href]).to include "/lists/#{production.id}/create"
+      link.click
+      link = find('.unlist')
+      expect(link[:href]).to include "/lists/#{List.first.id}/destroy"
+      link.click
+      link = find('.list')
+      expect(link[:href]).to include "/lists/#{production.id}/create"
+    end
+
+    it "作品個別ページからリスト登録/解除ができること", js: true do
+      link = find('.list')
+      expect(link[:href]).to include "/lists/#{production.id}/create"
+      link.click
+      link = find('.unlist')
+      expect(link[:href]).to include "/lists/#{List.first.id}/destroy"
+      link.click
+      link = find('.list')
+      expect(link[:href]).to include "/lists/#{production.id}/create"
+    end
+
+    it "制作予定リストページが期待通り表示され、リストから削除することもできること" do
+      visit lists_path
+      expect(page).not_to have_css ".list-production"
+      user.list(production)
+      production_2 = create(:production, user: user)
+      other_user.list(production_2)
+      visit lists_path
+      expect(page).to have_css ".list-production", count: 2
+      expect(page).to have_content production.name
+      expect(page).to have_content production.description
+      expect(page).to have_content List.last.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+      expect(page).to have_content "この作品を制作予定リストに追加しました。"
+      expect(page).to have_content production_2.name
+      expect(page).to have_content production_2.description
+      expect(page).to have_content List.first.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+      expect(page).to have_content "#{other_user.name}さんがこの作品を制作依頼リクエストをしました。"
+      expect(page).to have_link other_user.name, href: user_path(other_user)
+      user.unlist(List.first)
+      visit lists_path
+      expect(page).to have_css ".list-production", count: 1
+      expect(page).to have_content production.name
+      find('.unlist').click
+      visit lists_path
+      expect(page).not_to have_css ".list-production"
+    end
+  end
 end
