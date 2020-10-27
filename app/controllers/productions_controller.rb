@@ -16,6 +16,7 @@ class ProductionsController < ApplicationController
     @production = current_user.productions.build(production_params)
     if @production.save
       flash[:success] = "作品が登録されました！"
+      Log.create(production_id: @production.id, content: @production.memo)
       redirect_to production_path(@production)
     else
       render 'productions/new'
