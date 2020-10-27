@@ -10,6 +10,7 @@ ja:
       user: ユーザー
       production: 作品
       comment: コメント
+      log: 制作記録
     attributes:
       user:
         id: ID
@@ -37,6 +38,9 @@ ja:
         user_id: コメント投稿者のID
         production_id: コメントされた作品のID
         content: コメント
+      log:
+        production_id: 制作記録をつける作品のID
+        content: メモ
   date:
     abbr_day_names:
     - 日

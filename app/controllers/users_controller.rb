@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @productions = @user.productions.paginate(page: params[:page], per_page: 5)
+    @log = Log.new
   end
 
   def index

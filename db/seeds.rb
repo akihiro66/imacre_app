@@ -16,14 +16,17 @@ end
 
 10.times do |n|
   Production.create!(name: Faker::Commerce.product_name,
-               description: "一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。",
-               material: 1.5,
-               tips: "SPF材と杉材を組み合わせることで、コントラストをつけました",
-               reference: "https://diy-recipe.com/recipe/3164/",
-               required_time: 1,
-               popularity: 5,
-               memo: "初めて作った割にはうまくできた！",
-               user_id: 1)
+                     description: "一人用のアンティークテーブルです。木材はSPF材と杉材を使っています。",
+                     material: 1.5,
+                     tips: "SPF材と杉材を組み合わせることで、コントラストをつけました",
+                     reference: "https://diy-recipe.com/recipe/3164/",
+                     required_time: 1,
+                     popularity: 5,
+                     memo: "初めて作った割にはうまくできた！",
+                     user_id: 1)
+  production = Production.first
+  Log.create!(production_id: production.id,
+              content: production.memo)
 end
 
 # リレーションシップ

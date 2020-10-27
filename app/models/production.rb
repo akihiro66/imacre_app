@@ -3,6 +3,7 @@ class Production < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :lists, dependent: :destroy
+  has_many :logs, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
@@ -19,6 +20,11 @@ class Production < ApplicationRecord
 
   def feed_comment(production_id)
     Comment.where("production_id = ?", production_id)
+  end
+
+  # 作品に付属するログのフィードを作成
+  def feed_log(production_id)
+    Log.where("production_id = ?", production_id)
   end
 
   private
