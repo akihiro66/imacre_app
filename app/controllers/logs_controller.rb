@@ -6,7 +6,7 @@ class LogsController < ApplicationController
     @production = Production.find(params[:production_id])
     @log = @production.logs.build(content: params[:log][:content])
     @log.save
-    flash[:success] = "制作記録を追加しました！"
+    flash[:success] = "製作記録を追加しました！"
     # 製作予定リストページから製作記録が作成された場合、その作品をリストから削除
     List.find(params[:list_id]).destroy unless params[:list_id].nil?
     redirect_to production_path(@production)
@@ -17,7 +17,7 @@ class LogsController < ApplicationController
     @production = @log.production
     if current_user == @production.user
       @log.destroy
-      flash[:success] = "制作記録を削除しました"
+      flash[:success] = "製作記録を削除しました"
     end
     redirect_to production_url(@production)
   end

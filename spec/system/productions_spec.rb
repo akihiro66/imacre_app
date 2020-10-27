@@ -5,6 +5,7 @@ RSpec.describe "Productions", type: :system do
   let!(:other_user) { create(:user) }
   let!(:production) { create(:production, :picture, user: user) }
   let!(:comment) { create(:comment, user_id: user.id, production: production) }
+  let!(:log) { create(:log, production: production) }
 
   describe "作品登録ページ" do
     before do
@@ -187,6 +188,79 @@ RSpec.describe "Productions", type: :system do
           expect(page).to have_selector 'span', text: user.name
           expect(page).to have_selector 'span', text: comment.content
           expect(page).not_to have_link '削除', href: production_path(production)
+        end
+      end
+    end
+
+    context "製作記録の登録＆削除" do
+      context "作品詳細ページから" do
+        it "自分の作品に対する製作記録の登録＆削除が正常に完了すること" do
+          login_for_system(user)
+          visit production_path(production)
+          fill_in "log_content", with: "製作記録投稿テスト"
+          click_button "製作記録の追加"
+          within find("#log-#{Log.first.id}") do
+            expect(page).to have_selector 'span', text: "#{production.logs.count}回目"
+            expect(page).to have_selector 'span',
+                                          text: %Q(#{Log.last.created_at.strftime("%Y/%m/%d(%a)")})
+            expect(page).to have_selector 'span', text: '製作記録投稿テスト'
+          end
+          expect(page).to have_content "製作記録を追加しました！"
+          click_link "削除", href: log_path(Log.first)
+          expect(page).not_to have_selector 'span', text: '製作記録投稿テスト'
+          expect(page).to have_content "製作記録を削除しました"
+        end
+
+        it "別ユーザーの作品ログには製作記録の登録フォームが無いこと" do
+          login_for_system(other_user)
+          visit production_path(production)
+          expect(page).not_to have_button "作る"
+        end
+      end
+
+      context "トップページから" do
+        it "自分の作品に対する製作記録の登録が正常に完了すること" do
+          login_for_system(user)
+          visit root_path
+          fill_in "log_content", with: "製作記録投稿テスト"
+          click_button "追加"
+          expect(Log.first.content).to eq '製作記録投稿テスト'
+          expect(page).to have_content "製作記録を追加しました！"
+        end
+
+        it "別ユーザーの作品には製作記録の登録フォームがないこと" do
+          create(:production, user: other_user)
+          login_for_system(user)
+          user.follow(other_user)
+          visit root_path
+          within find("#production-#{Production.first.id}") do
+            expect(page).not_to have_button "作る"
+          end
+        end
+      end
+
+      context "プロフィールページから" do
+        it "自分の作品に対する製作記録の登録が正常に完了すること" do
+          login_for_system(user)
+          visit user_path(user)
+          fill_in "log_content", with: "製作記録投稿テスト"
+          click_button "追加"
+          expect(Log.first.content).to eq '製作記録投稿テスト'
+          expect(page).to have_content "製作記録を追加しました！"
+        end
+      end
+
+      context "製作予定リストページから" do
+        it "自分の作品に対する製作記録の登録が正常に完了し、リストから作品が削除されること" do
+          login_for_system(user)
+          user.list(production)
+          visit lists_path
+          expect(page).to have_content production.name
+          fill_in "log_content", with: "製作記録投稿テスト"
+          click_button "追加"
+          expect(Log.first.content).to eq '製作記録投稿テスト'
+          expect(page).to have_content "製作記録を追加しました！"
+          expect(List.count).to eq 0
         end
       end
     end
