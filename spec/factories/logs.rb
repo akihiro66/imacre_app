@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :log do
-    production_id { 1 }
-    content { "MyText" }
+    content { "材料の塗装を変えると面白いかも！" }
+    association :production
   end
 end
