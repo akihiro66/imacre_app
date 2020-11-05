@@ -11,7 +11,9 @@
     </div>
   </div>
 <% else %>
-    <h1>イマクリへようこそ！</h1>
-    <h2>あなたの想像を創造しませんか？</h2>
-    <p>趣味をお金に変えよう！</p>
+    <div class="cover text-center py-5">
+      <h1 class="display-3 mb-4 mt-4 font-weight-bold">欲しいものは、<br>自分でつくろう！</h1>
+      <h2 class="mb-4 mt-4">Imagination『想像』をCreate『創造』する</h2>
+      <p><%= link_to 'イマクリを始める', signup_path, class: "btn btn-warning btn-lg btn-demo shadow-lg" %></p>
+    </div>
 <% end %>
