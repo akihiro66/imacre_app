@@ -43,7 +43,7 @@ main {
   margin-top: 20px;
 }
 
-// フォーム
+// フォーム 
 input,
 textarea,
 select,
@@ -67,7 +67,7 @@ input {
   width: auto;
 }
 
-// ユーザー一覧ページ ////
+//// ユーザー一覧ページ ////
 .users {
   list-style: none;
   margin: 0;
@@ -77,4 +77,34 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid #bbb;
   }
+}
+
+//// プロフィールページ ////
+.title-profile {
+  margin-top: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.user-picture img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.user-picture-box {
+  margin-top: 0.5em;
+  margin-left: 1em;
+}
+
+.show-user-name {
+  display: inline-block;
+}
+
+.account-edit {
+  margin-top: 20px;
+}
+
+.account-delete {
+  margin-top: 20px;
 }
