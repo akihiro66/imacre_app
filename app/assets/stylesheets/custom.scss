@@ -1,27 +1,6 @@
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
 
-// // ミックスイン
-// @mixin box_sizing {
-//   -moz-box-sizing: border-box;
-//   -webkit-box-sizing: border-box;
-//   box-sizing: border-box;
-// }
-
-
-// input,
-// textarea,
-// select,
-// .uneditable-input {
-//   border: 1px solid #bbb;
-//   width: 100%;
-//   margin-bottom: 15px;
-//   @include box_sizing;
-// }
-
-// input {
-//   height: auto !important;
-// }
 
 // #error_explanation {
 //   color: red;
@@ -38,21 +17,6 @@
 //   .form-control {
 //     color: $state-danger-text;
 //   }
-// }
-
-// .checkbox {
-//   margin-top: -10px;
-//   margin-bottom: 10px;
-
-//   span {
-//     margin-left: 20px;
-//     font-weight: normal;
-//   }
-// }
-
-// #session_remember_me {
-//   width: auto;
-//   margin-left: 0;
 // }
 
 // //// プロフィールページ ////
