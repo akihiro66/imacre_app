@@ -1,444 +1,382 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-// ミックスイン
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-// 全ページ共通
-body {
-  padding-top: 60px;
-}
-
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
-// テキストの見栄え
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-// ヘッダー
-.navbar ul {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
-#logo {
-  float: left;
-  margin-top: 10px;
-  margin-bottom: 10px;
-
-  img {
-    width: 150px;
-  }
-}
-
-// フッター
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-
-  small {
-    float: center;
-  }
-}
-
-input,
-textarea,
-select,
-.uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
-
-#error_explanation {
-  color: red;
-
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error;
-
-  .form-control {
-    color: $state-danger-text;
-  }
-}
-
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
-
-//// プロフィールページ ////
-.title-profile {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.user-picture img {
-  max-width: 100%;
-  height: auto;
-  box-sizing: border-box;
-}
-
-.user-picture-box {
-  margin-top: 0.5em;
-  margin-left: 1em;
-}
-
-.show-user-name {
-  display: inline-block;
-}
-
-.account-edit {
-  margin-top: 20px;
-}
-
-//// ユーザー一覧ページ ////
-.users {
-  list-style: none;
-  margin: 0;
-
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
-
-/* 作品(Production) */
-.productions {
-  list-style: none;
-  padding: 0;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-
-  .description {
-    display: block;
-    margin-left: 60px;
-
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
-  }
-
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
-
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
-
-span.picture {
-  margin-top: 10px;
-
-  input {
-    border: 0;
-  }
-}
-
-//// トップページ（ログイン後） ////
-// 「新しい作品を作る」ボタン
-.btn-record {
-  margin-top: 3em;
-}
-
-//// 作品登録ページ ////
-.input-need {
-  color: red;
-  font-size: 13px;
-}
-
-.input-unneed {
-  font-size: 13px;
-}
-
-//// 作品個別ページ ////
-.production-user-name {
-  display: inline-block;
-}
-
-h2.production-name {
-  font-size: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: inline-block;
-}
-
-.production-reference {
-  margin-top: 30px;
-}
-
-.production-material {
-  margin-top: 30px;
-}
-
-.tips {
-  margin-top: 30px;
-  margin-bottom: 30px;
-
-  h5 {
-    font-size: 17px;
-  }
-}
-
-.title-tips {
-  font-size: 17px;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
-.show-production-other-info {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.production-other-info {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.production-info {
-  h5 {
-    font-size: 16px;
-    display: inline-block;
-  }
-
-  h4 {
-    font-size: 20px;
-    display: inline-block;
-  }
-}
-
-.change-production {
-  display: inline-block;
-}
-
-.edit-production .delete-production {
-  font-size: 15px;
-}
-
-.production-picture img {
-  max-width: 100%;
-  height: auto;
-  box-sizing: border-box;
-}
-
-.title-comment {
-  font-weight: bold;
-  font-size: 17px;
-}
-
-.comments {
-  list-style: none;
-
-  li {
-    font-size: 14px;
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-
-    .comment {
-      font-size: 16px;
-    }
-  }
-}
-
-.comment-create-at {
-  color: grey;
-}
-
-.title-createlog {
-  font-weight: bold;
-  font-size: 17px;
-}
-
-.production-created-at {
-  color: grey;
-}
-
-.logs {
-  list-style: none;
-
-  li {
-    font-size: 16px;
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-
-    .delete {
-      font-size: 14px;
-    }
-  }
-}
-
-// フォロー、フォロワー数表示部
-.stats {
-  margin: 5px 0;
-}
-
-// お気に入り
-.like-btn-unlike {
-  color: red;
-}
-
-.like-btn-like {
-  color: grey;
-}
-
-a.like,
-a.unlike {
-  text-decoration: none;
-}
-
-.favorites {
-  list-style: none;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-}
-
-////通知 ////
-// 新しい通知があるときは赤文字にする
-li.new_notification>a>span {
-  color: red;
-}
-
-.notifications {
-  list-style: none;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-
-  .gravatar {
-    margin-right: 10px;
-    margin-top: -5px;
-  }
-}
-
-.notification-message {
-  font-size: 16px;
-}
-
-//// リスト ////
-.list-btn-unlist {
-  color: red;
-  margin: 10px 0;
-}
-
-.list-btn-list {
-  color: grey;
-  margin: 10px 0;
-}
-
-a.list,
-a.unlist {
-  text-decoration: none;
-}
-
-.lists {
-  list-style: none;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-}
-
-.list-message {
-  font-size: 16px;
-}
-
-.list-production-description {
-  margin-bottom: 20px;
-}
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
+
+// // ミックスイン
+// @mixin box_sizing {
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+
+// body {
+//   padding-top: 80px;
+// }
+
+// // ヘッダー
+
+// // フッター
+// footer {
+//   margin-top: 45px;
+//   padding-top: 5px;
+//   border-top: 1px solid #eaeaea;
+//   color: #777;
+
+//   small {
+//     float: center;
+//   }
+// }
+
+// input,
+// textarea,
+// select,
+// .uneditable-input {
+//   border: 1px solid #bbb;
+//   width: 100%;
+//   margin-bottom: 15px;
+//   @include box_sizing;
+// }
+
+// input {
+//   height: auto !important;
+// }
+
+// #error_explanation {
+//   color: red;
+
+//   ul {
+//     color: red;
+//     margin: 0 0 30px 0;
+//   }
+// }
+
+// .field_with_errors {
+//   @extend .has-error;
+
+//   .form-control {
+//     color: $state-danger-text;
+//   }
+// }
+
+// .checkbox {
+//   margin-top: -10px;
+//   margin-bottom: 10px;
+
+//   span {
+//     margin-left: 20px;
+//     font-weight: normal;
+//   }
+// }
+
+// #session_remember_me {
+//   width: auto;
+//   margin-left: 0;
+// }
+
+// //// プロフィールページ ////
+// .title-profile {
+//   padding-bottom: 10px;
+//   border-bottom: 1px solid #eaeaea;
+// }
+
+// .user-picture img {
+//   max-width: 100%;
+//   height: auto;
+//   box-sizing: border-box;
+// }
+
+// .user-picture-box {
+//   margin-top: 0.5em;
+//   margin-left: 1em;
+// }
+
+// .show-user-name {
+//   display: inline-block;
+// }
+
+// .account-edit {
+//   margin-top: 20px;
+// }
+
+// //// ユーザー一覧ページ ////
+// .users {
+//   list-style: none;
+//   margin: 0;
+
+//   li {
+//     overflow: auto;
+//     padding: 10px 0;
+//     border-bottom: 1px solid $gray-lighter;
+//   }
+// }
+
+// /* 作品(Production) */
+// .productions {
+//   list-style: none;
+//   padding: 0;
+
+//   li {
+//     padding: 10px 0;
+//     border-top: 1px solid #e8e8e8;
+//   }
+
+//   .user {
+//     margin-top: 5em;
+//     padding-top: 0;
+//   }
+
+//   .description {
+//     display: block;
+//     margin-left: 60px;
+
+//     img {
+//       display: block;
+//       padding: 5px 0;
+//     }
+//   }
+
+//   .timestamp {
+//     color: $gray-light;
+//     display: block;
+//     margin-left: 60px;
+//   }
+
+//   .gravatar {
+//     float: left;
+//     margin-right: 10px;
+//     margin-top: 5px;
+//   }
+// }
+
+// aside {
+//   textarea {
+//     height: 100px;
+//     margin-bottom: 5px;
+//   }
+// }
+
+// span.picture {
+//   margin-top: 10px;
+
+//   input {
+//     border: 0;
+//   }
+// }
+
+// //// トップページ（ログイン後） ////
+// // 「新しい作品を作る」ボタン
+// .btn-record {
+//   margin-top: 3em;
+// }
+
+// //// 作品登録ページ ////
+// .input-need {
+//   color: red;
+//   font-size: 13px;
+// }
+
+// .input-unneed {
+//   font-size: 13px;
+// }
+
+// //// 作品個別ページ ////
+// .production-user-name {
+//   display: inline-block;
+// }
+
+// h2.production-name {
+//   font-size: 30px;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+//   display: inline-block;
+// }
+
+// .production-reference {
+//   margin-top: 30px;
+// }
+
+// .production-material {
+//   margin-top: 30px;
+// }
+
+// .tips {
+//   margin-top: 30px;
+//   margin-bottom: 30px;
+
+//   h5 {
+//     font-size: 17px;
+//   }
+// }
+
+// .title-tips {
+//   font-size: 17px;
+//   font-weight: bold;
+//   margin-top: 10px;
+//   margin-bottom: 0;
+// }
+
+// .show-production-other-info {
+//   margin-top: 30px;
+//   margin-bottom: 30px;
+// }
+
+// .production-other-info {
+//   margin-top: 10px;
+//   margin-bottom: 20px;
+// }
+
+// .production-info {
+//   h5 {
+//     font-size: 16px;
+//     display: inline-block;
+//   }
+
+//   h4 {
+//     font-size: 20px;
+//     display: inline-block;
+//   }
+// }
+
+// .change-production {
+//   display: inline-block;
+// }
+
+// .edit-production .delete-production {
+//   font-size: 15px;
+// }
+
+// .production-picture img {
+//   max-width: 100%;
+//   height: auto;
+//   box-sizing: border-box;
+// }
+
+// .title-comment {
+//   font-weight: bold;
+//   font-size: 17px;
+// }
+
+// .comments {
+//   list-style: none;
+
+//   li {
+//     font-size: 14px;
+//     padding: 10px 0;
+//     border-top: 1px solid #e8e8e8;
+
+//     .comment {
+//       font-size: 16px;
+//     }
+//   }
+// }
+
+// .comment-create-at {
+//   color: grey;
+// }
+
+// .title-createlog {
+//   font-weight: bold;
+//   font-size: 17px;
+// }
+
+// .production-created-at {
+//   color: grey;
+// }
+
+// .logs {
+//   list-style: none;
+
+//   li {
+//     font-size: 16px;
+//     padding: 10px 0;
+//     border-top: 1px solid #e8e8e8;
+
+//     .delete {
+//       font-size: 14px;
+//     }
+//   }
+// }
+
+// // フォロー、フォロワー数表示部
+// .stats {
+//   margin: 5px 0;
+// }
+
+// // お気に入り
+// .like-btn-unlike {
+//   color: red;
+// }
+
+// .like-btn-like {
+//   color: grey;
+// }
+
+// a.like,
+// a.unlike {
+//   text-decoration: none;
+// }
+
+// .favorites {
+//   list-style: none;
+
+//   li {
+//     padding: 10px 0;
+//     border-top: 1px solid #e8e8e8;
+//   }
+// }
+
+// ////通知 ////
+// // 新しい通知があるときは赤文字にする
+// li.new_notification>a>span {
+//   color: red;
+// }
+
+// .notifications {
+//   list-style: none;
+
+//   li {
+//     padding: 10px 0;
+//     border-top: 1px solid #e8e8e8;
+//   }
+
+//   .gravatar {
+//     margin-right: 10px;
+//     margin-top: -5px;
+//   }
+// }
+
+// .notification-message {
+//   font-size: 16px;
+// }
+
+// //// リスト ////
+// .list-btn-unlist {
+//   color: red;
+//   margin: 10px 0;
+// }
+
+// .list-btn-list {
+//   color: grey;
+//   margin: 10px 0;
+// }
+
+// a.list,
+// a.unlist {
+//   text-decoration: none;
+// }
+
+// .lists {
+//   list-style: none;
+
+//   li {
+//     padding: 10px 0;
+//     border-top: 1px solid #e8e8e8;
+//   }
+// }
+
+// .list-message {
+//   font-size: 16px;
+// }
+
+// .list-production-description {
+//   margin-bottom: 20px;
+// }
