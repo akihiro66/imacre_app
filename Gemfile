@@ -19,8 +19,8 @@ gem 'bootstrap-sass'
 # ダミーデータの生成
 gem 'faker'
 # ページネーション
-gem 'will_paginate',           '3.1.8'
-gem 'bootstrap-will_paginate', '1.0.0'
+gem 'will_paginate', '3.1.8'
+gem 'will_paginate-bootstrap4'
 # 画像投稿機能
 gem 'carrierwave', '~> 2.0'
 # 画像リサイズ機能
