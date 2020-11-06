@@ -5,8 +5,6 @@
 
 @import "bootstrap/scss/bootstrap";
 
-$main-magenta: #dd356e;
-$main-yellow: #fee856;
 
 // ミックスイン
 @mixin box_sizing {
@@ -294,8 +292,8 @@ h2.production-name {
 .btn-record {
   margin-top: 3em;
   color: black;
-  background-color: $main-yellow;
-  border-color: $main-yellow;
+  background-color: #fee856;
+  border-color: #fee856;
 }
 
 // 「CSV出力」ボタン
