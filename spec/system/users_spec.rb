@@ -153,7 +153,7 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_content production.description
           expect(page).to have_content production.user.name
           expect(page).to have_content production.required_time
-          expect(page).to have_content production.popularity
+          expect(page).to have_content "★" * production.popularity + "☆" * (5 - production.popularity) # rubocop:disable Metrics/LineLength
         end
       end
 

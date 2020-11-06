@@ -2,18 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9">
-        <h3>みんなの作品 (<%= @feed_items.count %>)</h3>
+        <h3 class="pt-4 pb-1">みんなの作品 (<%= @feed_items.count %>)</h3>
         <%= render 'shared/feed' %>
       </div>
       <div class="col-md-3">
         <p><%= link_to "新しい作品を作る", new_production_path, class: "btn btn-primary btn-lg btn-record" %></p>
+        <br>
+        <p><%= link_to "みんなの作品をCSV出力", "#", class: "btn btn-primary btn-lg btn-demo btn-csv" %></p>
   	  </div>
     </div>
   </div>
 <% else %>
-  <center>
-    <h1>イマクリへようこそ！</h1>
-    <h2>あなたの想像を創造しませんか？</h2>
-    <p>趣味をお金に変えよう！</p>
-  </center>
+    <div class="cover text-center py-5">
+      <h1 class="display-3 mb-4 mt-4 font-weight-bold">欲しいものは、<br>自分でつくろう！</h1>
+      <h2 class="mb-4 mt-4">Imagination『想像』をCreate『創造』する</h2>
+      <p><%= link_to 'イマクリを始める', signup_path, class: "btn btn-warning btn-lg btn-demo shadow-lg" %></p>
+    </div>
 <% end %>

@@ -2,48 +2,58 @@
 <% @comments  = @production.feed_comment(@production.id) %>
 <% @logs  = @production.feed_log(@production.id) %>
 <div class="container">
-  <div class="col-md-4">
-    <span class="picture">
-      <%= link_to((image_tag @production.picture.thumb400.url), production_path(@production.id), class: 'production-picture') if @production.picture.url.present? %>
-    </span>
-    <%= render 'users/favorite_form' %>
-    <%= render 'users/list_form' %>
-  </div>
-  <div class="col-md-8">
-    <h2 class="production-name"><%= @production.name %></h2>
-    <div class="change-production">
+  <div class="row pt-4">
+    <div class="col-md-4">
+      <span class="picture">
+        <%= link_to((image_tag @production.picture.thumb400.url), production_path(@production.id), class: 'production-picture') if @production.picture.url.present? %>
+      </span>
+      <%= render 'users/favorite_form' %>
+      <%= render 'users/list_form' %>
+    </div>
+    <div class="col-md-8">
+      <h2 class="production-name"><%= @production.name %></h2>
+      <div class="change-production">
+        <% if current_user == @production.user %>
+          <%= link_to "編集", edit_production_path(@production), class: 'edit-production' %>
+        <% end %>
+        <% if current_user.admin? || (current_user == @production.user) %>
+          <%= link_to "削除", production_path(@production), method: :delete, class: 'delete-production',
+                                                            data: { confirm: "本当に削除しますか？" } %>
+        <% end %>
+      </div>
+      <h4><%= @production.description %></h4>
+      <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
+      <h4 class="production-material">材料費：<%= @production.material %> 円</h4>
+      <div class="tips">
+        <h5 class="title-tips">コツ・ポイント</h5>
+        <h5><%= @production.tips %></h5>
+      </div>
+      <div class="show-production-other-info">
+        <div class="production-info">
+            <h5>製作回数：</h5><h4><%= @production.logs.count %></h4> <h5>回</h5>
+          </div>
+        <div class="production-info">
+          <h5>所要時間：</h5><h4><%= @production.required_time %></h4> <h5>時間</h5>
+        </div>
+        <div class="production-info">
+          <h5>人気度：</h5><h4><%= @production.popularity %></h4>
+          <h4>
+            <% if @production.popularity.present? %>
+              <%= "★" * @production.popularity %><%= "☆" * (5 - @production.popularity) %>
+            <% end %>
+          </h4>
+        </div>
+      </div>
       <% if current_user == @production.user %>
-        <%= link_to "編集", edit_production_path(@production), class: 'edit-production' %>
+        <div class="log">
+          <%= render "logs/feed_logs" %>
+          <%= render "logs/new" %>
+        </div>
       <% end %>
-      <% if current_user.admin? || (current_user == @production.user) %>
-        <%= link_to "削除", production_path(@production), method: :delete, class: 'delete-production',
-                                                          data: { confirm: "本当に削除しますか？" } %>
-      <% end %>
-    </div>
-    <h4><%= @production.description %></h4>
-    <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
-    <h4 class="production-material">材料費：<%= @production.material %> 円</h4>
-    <div class="tips">
-      <h5 class="title-tips">コツ・ポイント</h5>
-      <h5><%= @production.tips %></h5>
-    </div>
-    <div class="show-production-other-info">
-      <div class="production-info">
-        <h5>所要時間：</h5><h4><%= @production.required_time %></h4> <h5>時間</h5>
+      <div class="comment">
+        <%= render "comments/feed_comments" %>
+        <%= render "comments/new" %>
       </div>
-      <div class="production-info">
-        <h5>人気度：</h5><h4><%= @production.popularity %></h4>
-      </div>
-    </div>
-    <% if current_user == @production.user %>
-      <div class="log">
-        <%= render "logs/feed_logs" %>
-        <%= render "logs/new" %>
-      </div>
-    <% end %>
-    <div class="comment">
-      <%= render "comments/feed_comments" %>
-      <%= render "comments/new" %>
     </div>
   </div>
 </div>
