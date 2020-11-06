@@ -108,3 +108,175 @@ input {
 .account-delete {
   margin-top: 20px;
 }
+
+
+//// 作品(Production) ////
+.productions {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+
+  .description {
+    display: block;
+    margin-left: 60px;
+
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+
+  .timestamp {
+    color: #e8e8e8;
+    display: block;
+    margin-left: 60px;
+  }
+
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+
+  input {
+    border: 0;
+  }
+}
+
+//// 作品個別ページ ////
+.production-user-name {
+  display: inline-block;
+}
+
+h2.production-name {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.production-reference {
+  margin-top: 30px;
+}
+
+.production-material {
+  margin-top: 30px;
+}
+
+.tips {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  h5 {
+    font-size: 17px;
+  }
+}
+
+.title-tips {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.show-production-other-info {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.production-other-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.production-info {
+  h5 {
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  h4 {
+    font-size: 20px;
+    display: inline-block;
+  }
+}
+
+.change-production {
+  display: inline-block;
+}
+
+.edit-production .delete-production {
+  font-size: 15px;
+}
+
+.production-picture img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.title-comment {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.comments {
+  list-style: none;
+
+  li {
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+
+    .comment {
+      font-size: 16px;
+    }
+  }
+}
+
+.comment-create-at {
+  color: grey;
+}
+
+.title-createlog {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.production-created-at {
+  color: grey;
+}
+
+.logs {
+  list-style: none;
+
+  li {
+    font-size: 16px;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+
+    .delete {
+      font-size: 14px;
+    }
+  }
+}
