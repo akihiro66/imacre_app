@@ -6,6 +6,10 @@ class ProductionsController < ApplicationController
     @production = Production.new
   end
 
+  def index
+    @log = Log.new
+  end
+
   def show
     @production = Production.find(params[:id])
     @comment = Comment.new
