@@ -11,6 +11,23 @@ FactoryBot.define do
     created_at { Time.current }
   end
 
+  trait :materials do
+    materials_attributes {
+                             [
+                               { name: "木材A", amount: "1本" },
+                               { name: "木材B", amount: "2本" },
+                               { name: "木材C", amount: "3本" },
+                               { name: "木材D", amount: "4本" },
+                               { name: "木材E", amount: "5本" },
+                               { name: "木材F", amount: "6本" },
+                               { name: "木材G", amount: "7本" },
+                               { name: "木材H", amount: "8本" },
+                               { name: "木材I", amount: "9本" },
+                               { name: "木材J", amount: "10本" },
+                             ]
+    }
+  end
+
   trait :yesterday do
     created_at { 1.day.ago }
   end
