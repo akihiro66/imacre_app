@@ -23,6 +23,23 @@
       </div>
       <h4><%= @production.description %></h4>
       <h4 class="production-reference">作り方：<%= link_to "#{@production.reference}", @production.reference, target: "_blank" %></h4>
+      <div class="materials">
+          <h5 class="title-materials">材料</h5>
+          <div class="row">
+            <div class="col-md-8">
+              <table class="material">
+                <% @production.materials.each do |i| %>
+                  <% if i.name.present? %>
+                    <tr>
+                      <td><%= i.name %></td>
+                      <td><%= i.amount %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
       <h4 class="production-material">材料費：<%= @production.material %> 円</h4>
       <div class="tips">
         <h5 class="title-tips">コツ・ポイント</h5>

@@ -167,6 +167,10 @@ RSpec.describe "Productions", type: :system do
         expect(page).to have_content production.reference
         expect(page).to have_content production.required_time
         expect(page).to have_content production.popularity
+        production.materials.each do |i|
+          expect(page).to have_content i.name
+          expect(page).to have_content i.amount
+        end
         expect(page).to have_link nil, href: production_path(production), class: 'production-picture' # rubocop:disable Metrics/LineLength
       end
     end

@@ -431,7 +431,39 @@ li.new_notification>a>span {
 
 
 //// 材料 ////
-.title-ingredient-name,
-.title-ingredient-quantity {
+.title-material-name,
+.title-material-amount {
   font-weight: bold;
+}
+
+.materials {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  h5 {
+    font-size: 17px;
+  }
+}
+
+.title-materials {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+table.material {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table.material th,
+table.material td {
+  padding: 10px 0;
+  text-align: center;
+}
+
+table.material tr:nth-child(odd) {
+  background-color: #eee
 }
