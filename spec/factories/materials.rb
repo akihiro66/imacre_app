@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :material do
-    name { "MyString" }
-    production_id { 1 }
-    amount { "MyString" }
+    name { "SPF材" }
+    amount { "5本" }
+    association :production
   end
 end
