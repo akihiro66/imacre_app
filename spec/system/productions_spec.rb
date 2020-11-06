@@ -326,13 +326,13 @@ RSpec.describe "Productions", type: :system do
         create(:production, name: '飾り棚', user: other_user)
 
         # 誰もフォローしない場合
-        fill_in 'q_name_cont', with: 'テーブル'
+        fill_in 'q_name_or_materials_name_cont', with: 'テーブル'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”テーブル”の検索結果：1件"
         within find('.productions') do
           expect(page).to have_css 'li', count: 1
         end
-        fill_in 'q_name_cont', with: '棚'
+        fill_in 'q_name_or_materials_name_cont', with: '棚'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”棚”の検索結果：1件"
         within find('.productions') do
@@ -341,22 +341,31 @@ RSpec.describe "Productions", type: :system do
 
         # other_userをフォローする場合
         user.follow(other_user)
-        fill_in 'q_name_cont', with: 'テーブル'
+        fill_in 'q_name_or_materials_name_cont', with: 'テーブル'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”テーブル”の検索結果：2件"
         within find('.productions') do
           expect(page).to have_css 'li', count: 2
         end
-        fill_in 'q_name_cont', with: '棚'
+        fill_in 'q_name_or_materials_name_cont', with: '棚'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”棚”の検索結果：2件"
         within find('.productions') do
           expect(page).to have_css 'li', count: 2
         end
+
+        # 材料も含めて検索に引っかかること
+        create(:material, name: 'アンティークテーブル', production: Production.first)
+        fill_in 'q_name_or_materials_name_cont', with: 'テーブル'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”テーブル”の検索結果：3件"
+        within find('.productions') do
+          expect(page).to have_css 'li', count: 3
+        end
       end
 
       it "検索ワードを入れずに検索ボタンを押した場合、作品一覧が表示されること" do
-        fill_in 'q_name_cont', with: ''
+        fill_in 'q_name_or_materials_name_cont', with: ''
         click_button '検索'
         expect(page).to have_css 'h3', text: "作品一覧"
         within find('.productions') do
