@@ -280,3 +280,52 @@ h2.production-name {
     }
   }
 }
+
+//// トップページ（ログイン後） ////
+// 「新しい作品を作る」ボタン
+.btn-record {
+  margin-top: 3em;
+}
+
+// 料理一覧
+.production-user {
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+h3.production-name {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.production-description {
+  margin-top: 10px;
+}
+
+// お気に入り
+.create-user {
+  margin-bottom: 20px;
+}
+
+// リスト
+.list-button {
+  margin-bottom: 20px;
+}
+
+// ログ
+.add-createlog {
+  font-weight: bold;
+}
+
+
+//// 作品登録ページ ////
+.input-need {
+  color: red;
+  font-size: 13px;
+}
+
+.input-unneed {
+  font-size: 13px;
+}
