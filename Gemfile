@@ -25,6 +25,8 @@ gem 'will_paginate-bootstrap4'
 gem 'carrierwave', '~> 2.0'
 # 画像リサイズ機能
 gem "mini_magick"
+# 検索機能
+gem 'ransack'
 
 group :development, :test do
   gem 'rspec-rails'
