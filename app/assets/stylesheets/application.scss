@@ -5,6 +5,9 @@
 
 @import "bootstrap/scss/bootstrap";
 
+$main-magenta: #dd356e;
+$main-yellow: #fee856;
+
 // ミックスイン
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -107,6 +110,11 @@ input {
 
 .account-delete {
   margin-top: 20px;
+}
+
+// フォロー、フォロワー数表示部
+.stats {
+  margin: 5px 0;
 }
 
 
@@ -285,9 +293,19 @@ h2.production-name {
 // 「新しい作品を作る」ボタン
 .btn-record {
   margin-top: 3em;
+  color: black;
+  background-color: $main-yellow;
+  border-color: $main-yellow;
 }
 
-// 料理一覧
+// 「CSV出力」ボタン
+.btn-csv {
+  color: black;
+  background-color: palegreen;
+  border-color: palegreen;
+}
+
+// 作品一覧
 .production-user {
   text-align: right;
   margin-top: 5px;
