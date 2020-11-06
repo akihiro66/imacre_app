@@ -4,6 +4,7 @@ class ProductionsController < ApplicationController
 
   def new
     @production = Production.new
+    @production.materials.build
   end
 
   def index
@@ -57,7 +58,8 @@ class ProductionsController < ApplicationController
 
     def production_params
       params.require(:production).permit(:name, :description, :material, :tips,
-                                         :reference, :required_time, :popularity, :memo, :picture)
+                                         :reference, :required_time, :popularity, :memo, :picture,
+                                         materials_attributes: [:id, :name, :amount])
     end
 
     def correct_user

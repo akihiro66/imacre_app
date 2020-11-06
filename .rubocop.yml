@@ -56,3 +56,6 @@ Lint/UselessAssignment:
 
 Airbnb/RiskyActiverecordInvocation:
   Enabled: false
+
+Layout/MultilineArrayBraceLayout:
+  Enabled: false

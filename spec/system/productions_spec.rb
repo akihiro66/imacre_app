@@ -25,12 +25,19 @@ RSpec.describe "Productions", type: :system do
       it "入力部分に適切なラベルが表示されること" do
         expect(page).to have_content '作品名'
         expect(page).to have_content '説明'
+        expect(page).to have_css 'label[for=production_materials_attributes_0_name]', text: '材料（10種類まで登録可）', count: 1 # rubocop:disable Metrics/LineLength
+        expect(page).to have_css 'label[for=production_materials_attributes_0_amount]', text: '数量', count: 1 # rubocop:disable Metrics/LineLength
         expect(page).to have_content '材料費 [円]'
         expect(page).to have_content 'コツ・ポイント'
         expect(page).to have_content '作り方参照用URL'
         expect(page).to have_content '所要時間 [時間]'
         expect(page).to have_content '人気度 [1~5]'
         expect(page).to have_content 'メモ'
+      end
+
+      it "材料入力部分が10行表示されること" do
+        expect(page).to have_css 'input.material_name', count: 10
+        expect(page).to have_css 'input.material_amount', count: 10
       end
     end
 
