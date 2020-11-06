@@ -4,7 +4,7 @@ RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
   let!(:other_user) { create(:user) }
-  let!(:production) { create(:production, user: user) }
+  let!(:production) { create(:production, :materials, user: user) }
   let!(:other_production) { create(:production, user: other_user) }
 
   describe "ユーザー一覧ページ" do
@@ -148,12 +148,20 @@ RSpec.describe "Users", type: :system do
       end
 
       it "作品の件数が表示されていることを確認" do
+        expect(page).to have_content "作品 (#{user.productions.count})"
+      end
+
+      it "作品の情報が表示されていることを確認" do
         Production.take(5).each do |production|
           expect(page).to have_link production.name
           expect(page).to have_content production.description
           expect(page).to have_content production.user.name
           expect(page).to have_content production.required_time
           expect(page).to have_content "★" * production.popularity + "☆" * (5 - production.popularity) # rubocop:disable Metrics/LineLength
+          production.materials.each do |i|
+            expect(page).to have_content i.name
+            expect(page).to have_content i.amount
+          end
         end
       end
 
