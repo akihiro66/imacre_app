@@ -18,7 +18,10 @@ RSpec.describe "作品編集", type: :request do
                                                                  tips: "SPF材と杉材を組み合わせることで、コントラストをつけました", # rubocop:disable Metrics/LineLength
                                                                  reference: "https://diy-recipe.com/recipe/3164/", # rubocop:disable Metrics/LineLength
                                                                  required_time: 1,
-                                                                 popularity: 5 } }
+                                                                 popularity: 5,
+                                                                 materials_attributes: [
+                                                                   name: "編集-SPF材",
+                                                                   amount: "編集-5本"] } }
       redirect_to production
       follow_redirect!
       expect(response).to render_template('productions/show')

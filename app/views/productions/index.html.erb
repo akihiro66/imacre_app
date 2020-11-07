@@ -1,0 +1,12 @@
+<% provide(:title, '作品一覧') %>
+<div class="container">
+  <% if @search_word.present? %>
+    <h3>”<%= @search_word %>”の検索結果：<%= @productions.count %>件</h3>
+  <% else %>
+    <h3>作品一覧</h3>
+  <% end %>
+  <ul class="productions">
+    <%= render @productions %>
+  </ul>
+  <%= will_paginate %>
+</div>

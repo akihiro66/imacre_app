@@ -13,6 +13,14 @@
         <h3 class="production-name"><%= link_to production.name, production_path(production) %></h3>
         <div class="production-description"><%= production.description %></div>
         <div class="production-user">created by <%= link_to production.user.name, user_path(production.user) %></div>
+        <div class="production-material">
+          <p class="title-material-mini">【材料】</p>
+          <% production.materials.each_with_index do |ing, i| %>
+            <% if ing.name.present? %>
+              <%= "｜" unless i == 0 %><%= ing.name %>: <%= ing.amount %>
+            <% end %>
+          <% end %>
+        </div>
         <div class="production-other-info">
           <span class="create_times">製作回数：<%= production.logs.count %>回 </span>
           <span class="required_time">所要時間：<%= production.required_time %>時間 </span>
