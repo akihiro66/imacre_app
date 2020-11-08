@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   post "lists/:production_id/create" => "lists#create"
   delete "lists/:list_id/destroy" => "lists#destroy"
   resources :logs, only: [:create, :destroy]
+  post "/guest", to: "guest_sessions#new_guest"
 end

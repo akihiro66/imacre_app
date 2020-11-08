@@ -17,6 +17,6 @@
       <h1 class="display-3 mb-4 mt-4 font-weight-bold">欲しいものは、<br>自分でつくろう！</h1>
       <h2 class="mb-4 mt-4">Imagination『想像』をCreate『創造』する</h2>
       <p><%= link_to 'イマクリを始める', signup_path, class: "btn btn-warning btn-lg btn-demo shadow-lg" %></p>
-      <p><%= link_to 'ゲストログイン(閲覧用)', "#", class: "btn btn-success btn-lg btn-demo shadow-lg" %></p>
+      <p><%= link_to 'ゲストログイン(閲覧用)', guest_path, method: :post, class: "btn btn-success btn-lg btn-demo shadow-lg" %></p>
     </div>
 <% end %>

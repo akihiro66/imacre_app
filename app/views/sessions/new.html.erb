@@ -23,7 +23,7 @@
       <hr>
       <%= link_to 'アカウントをお持ちでない方', signup_path, class: 'btn btn-info btn-block' %>
       <%= link_to 'パスワードを忘れましたか？', '#', class: 'btn btn-secondary btn-block' %>
-      <%= link_to 'ゲストログイン(閲覧用)', "#", class: "btn btn-success btn-block" %>
+      <%= link_to 'ゲストログイン(閲覧用)', guest_path, method: :post, class: "btn btn-success btn-block" %>
     </div>
   </div>
 </div>
