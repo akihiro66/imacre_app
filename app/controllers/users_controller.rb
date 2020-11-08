@@ -95,7 +95,7 @@ class UsersController < ApplicationController
     end
   end
 
-  #ゲストユーザーの編集・削除は出来ないようにする
+  # ゲストユーザーの編集・削除は出来ないようにする
   def check_guest
     if guest_user
       flash[:danger] = 'ゲストユーザーの変更・削除はできません。'
