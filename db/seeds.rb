@@ -43,7 +43,7 @@ Production.create!(
       required_time: 5,
       popularity: 5,
       memo: "結構簡単だった",
-      picture: open("#{Rails.root}/public/images/production1.jpeg"),
+      picture: open("#{Rails.root}/public/images/production1.jpg"),
       materials_attributes: [
                                 { name: "木目調壁紙", amount: "10m" },
                                 { name: "張り替え工具", amount: "1セット" },
@@ -91,7 +91,7 @@ Production.create!(
       required_time: 1,
       popularity: 4,
       memo: "窓幅プラス200mmの鉄筋が必要",
-      picture: open("#{Rails.root}/public/images/production3.jpeg"),
+      picture: open("#{Rails.root}/public/images/production3.jpg"),
       materials_attributes: [
                                 { name: "鉄筋棒(1800mm)", amount: "2本" },
                                 { name: "固定金物", amount: "5個" },
@@ -115,7 +115,7 @@ Production.create!(
       required_time: 5,
       popularity: 5,
       memo: "レンガの柄を合わせるのが大変",
-      picture: open("#{Rails.root}/public/images/production4.jpeg"),
+      picture: open("#{Rails.root}/public/images/production4.jpg"),
       materials_attributes: [
                                 { name: "レンガ調壁紙", amount: "10m" },
                                 { name: "張り替え工具", amount: "1セット" },
@@ -211,7 +211,7 @@ Production.create!(
       required_time: 3,
       popularity: 5,
       memo: "手縫いは結構大変",
-      picture: open("#{Rails.root}/public/images/production8.jpeg"),
+      picture: open("#{Rails.root}/public/images/production8.jpg"),
       materials_attributes: [
                                 { name: "レザー", amount: "適量" },
                                 { name: "スタッズ", amount: "適量" },
@@ -235,7 +235,7 @@ Production.create!(
       required_time: 1,
       popularity: 5,
       memo: "初めてだけど楽しくできた",
-      picture: open("#{Rails.root}/public/images/production9.jpeg"),
+      picture: open("#{Rails.root}/public/images/production9.jpg"),
       materials_attributes: [
                                 { name: "スターターセット", amount: "1つ" },
                                 { name: "", amount: "" },
@@ -283,7 +283,7 @@ Production.create!(
       required_time: 2,
       popularity: 5,
       memo: "躊躇せずに貼った方がいいかも",
-      picture: open("#{Rails.root}/public/images/production11.jpeg"),
+      picture: open("#{Rails.root}/public/images/production11.jpg"),
       materials_attributes: [
                                 { name: "木目調のシート", amount: "5枚" },
                                 { name: "", amount: "" },
@@ -307,7 +307,7 @@ Production.create!(
       required_time: 2,
       popularity: 5,
       memo: "躊躇せずにに貼った方がいいかも",
-      picture: open("#{Rails.root}/public/images/production12.jpeg"),
+      picture: open("#{Rails.root}/public/images/production12.jpg"),
       materials_attributes: [
                                 { name: "大理石調シート", amount: "4枚" },
                                 { name: "", amount: "" },
@@ -355,7 +355,7 @@ Production.create!(
       required_time: 3,
       popularity: 4,
       memo: "擦れる部分はすぐに塗装が剥がれちゃう",
-      picture: open("#{Rails.root}/public/images/production14.jpeg"),
+      picture: open("#{Rails.root}/public/images/production14.jpg"),
       materials_attributes: [
                                 { name: "ダイソーのウォータージャグ", amount: "1つ" },
                                 { name: "好きな色のスプレー", amount: "1本" },
@@ -379,7 +379,7 @@ Production.create!(
       required_time: 5,
       popularity: 5,
       memo: "木材の切り口はやすりがけをした方がいい",
-      picture: open("#{Rails.root}/public/images/production15.jpeg"),
+      picture: open("#{Rails.root}/public/images/production15.jpg"),
       materials_attributes: [
                                 { name: "DODテキーラレッグS", amount: "1セット" },
                                 { name: "１✖️６材(900mm)", amount: "5本" },
