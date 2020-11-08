@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # ゲストユーザーかどうか確認
+  def guest_user
+    current_user == User.find_by(email: 'recruit@example.com')
+  end
+
   private
 
   # ログイン済みユーザーかどうか確認

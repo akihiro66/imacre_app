@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers] # rubocop:disable Metrics/LineLength
   before_action :correct_user,   only: [:edit, :update]
+  before_action :check_guest, only: [:update, :destroy]
 
   def new
     @user = User.new
@@ -91,6 +92,14 @@ class UsersController < ApplicationController
     if !current_user?(@user)
       flash[:danger] = "このページへはアクセスできません"
       redirect_to(root_url)
+    end
+  end
+
+  # ゲストユーザーの編集・削除は出来ないようにする
+  def check_guest
+    if guest_user
+      flash[:danger] = 'ゲストユーザーの変更・削除はできません。'
+      redirect_to root_path
     end
   end
 end
