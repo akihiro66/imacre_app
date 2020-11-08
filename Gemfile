@@ -23,6 +23,7 @@ gem 'will_paginate', '3.1.8'
 gem 'will_paginate-bootstrap4'
 # 画像投稿機能
 gem 'carrierwave', '~> 2.0'
+gem 'fog-aws'
 # 画像リサイズ機能
 gem "mini_magick"
 # 検索機能

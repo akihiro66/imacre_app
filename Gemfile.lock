@@ -542,6 +542,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fog
+  fog-aws
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mini_magick
