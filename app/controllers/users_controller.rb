@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "イマクリへようこそ！"
+      flash[:success] = "イマクリへようこそ！ まずは作品を作ってみましょう！"
       redirect_to @user
     else
       render 'new'
