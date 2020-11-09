@@ -11,7 +11,7 @@
       <%= render 'users/list_form' %>
     </div>
     <div class="col-md-8">
-      <h2 class="production-name"><%= @production.name %></h2>
+      <h2 class="production-name"><%= @production.name %>　</h2>
       <div class="change-production">
         <% if current_user == @production.user %>
           <%= link_to "編集", edit_production_path(@production), class: 'edit-production' %>
@@ -53,7 +53,7 @@
           <h5>所要時間：</h5><h4><%= @production.required_time %></h4> <h5>時間</h5>
         </div>
         <div class="production-info">
-          <h5>人気度：</h5><h4><%= @production.popularity %></h4>
+          <h5>満足度：</h5>
           <h4>
             <% if @production.popularity.present? %>
               <%= "★" * @production.popularity %><%= "☆" * (5 - @production.popularity) %>

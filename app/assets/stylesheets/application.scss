@@ -14,17 +14,56 @@
 }
 
 body {
-  padding-top: 80px;
+  font-size: 14px;
+  padding-top: 95px;
   font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
 
 main {
   padding: 0;
   margin: 0;
-  // background-color: #cd5c5c;
   color: #000;
   width: 100%;
   height: 100% !important;
+}
+
+// テキストの見栄え
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 36px;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
 
 // ログイン前のトップページ
@@ -39,10 +78,6 @@ main {
   color: #fff;
 }
 
-// イマクリとは？ページ
-.about {
-  margin-top: 20px;
-}
 
 // フォーム 
 input,
@@ -59,6 +94,25 @@ input {
   height: auto !important;
 }
 
+#error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+  }
+
+  .form-control {
+    color: #a94442;
+  }
+}
+
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -66,6 +120,10 @@ input {
 
 #session_remember_me {
   width: auto;
+}
+
+label {
+  font-weight: bold;
 }
 
 //// ユーザー一覧ページ ////
@@ -76,13 +134,12 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #eaeaea;
   }
 }
 
 //// プロフィールページ ////
 .title-profile {
-  margin-top: 30px;
   padding-bottom: 10px;
   border-bottom: 1px solid #eaeaea;
 }
@@ -175,6 +232,7 @@ span.picture {
 }
 
 h2.production-name {
+  color: #000;
   font-size: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -233,6 +291,7 @@ h2.production-name {
 
 .edit-production .delete-production {
   font-size: 15px;
+  margin: 5px;
 }
 
 .production-picture img {
@@ -407,7 +466,7 @@ a.unlist {
 
 //// 通知 ////
 // 新しい通知があるときは赤文字にする
-li.new_notification>a>span {
+li.new_notification>i.fa-bell a.nav-link {
   color: red;
 }
 
@@ -434,6 +493,7 @@ li.new_notification>a>span {
 .title-material-name,
 .title-material-amount {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .materials {
@@ -475,4 +535,188 @@ table.material tr:nth-child(odd) {
 .title-material-mini {
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+
+//// イマクリとは？ページ ////
+// イマクリとは？
+.title-about {
+  padding: 0.5em;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
+}
+
+// 主な使い方
+.title-use {
+  position: relative;
+  padding-left: 25px;
+  margin-top: 50px;
+}
+
+h1.title-about {
+  text-align: left;
+}
+
+h2.title-use {
+  font-size: 30px;
+  text-align: left;
+  color: #000;
+}
+
+// 使い方A、B
+ol.main-use {
+  counter-reset: list;
+  list-style-type: none;
+  font: 14px/1.6 'arial narrow', sans-serif;
+  font-size: 18px;
+  padding: 1.5em 1.5em 0.5em 1.5em;
+}
+
+ol.main-use li {
+  position: relative;
+  line-height: 30px;
+  margin: 7px 0 10px 30px;
+  padding: 5px 0 5px 20px;
+  font-weight: bold;
+  background: #f4f4f4;
+}
+
+ol.main-use li:before {
+  position: absolute;
+  left: -50px;
+  width: 40px;
+  height: 40px;
+  padding-top: 5px;
+  text-align: center;
+  color: #fff;
+  background: #7db4e6;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+ol.main-use li.A:before {
+  content: "A";
+}
+
+ol.main-use li.B:before {
+  content: "B";
+}
+
+ol.main-use li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -10px;
+  height: 0;
+  width: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid #7db4e6;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// 中線
+.about-line {
+  border: dashed 1px #7db4e6;
+  margin: 2em 0;
+}
+
+// 各種機能
+.title-use:before {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  border-left: solid 15px transparent;
+  border-bottom: solid 15px #7db4e6;
+}
+
+.title-use:after {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 10px;
+  width: 100%;
+  border-bottom: solid 3px #7db4e6;
+}
+
+.use-content {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+ol.how-to-use {
+  counter-reset: list;
+  list-style-type: none;
+  font: 14px/1.6 'arial narrow', sans-serif;
+  padding: 0;
+}
+
+ol.how-to-use li {
+  position: relative;
+  padding: 0 0 0 20px;
+  margin: 7px 0 7px 0px;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 30px;
+  border-bottom: dashed 1px #7db4e6;
+}
+
+ol.how-to-use li:before {
+  counter-increment: list;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #7db4e6;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+ol.how-to-use li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 6px;
+  height: 0;
+  width: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid #fff;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.use-explanation {
+  margin-left: 30px;
+}
+
+img.use-picture {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  margin-bottom: 30px;
 }
