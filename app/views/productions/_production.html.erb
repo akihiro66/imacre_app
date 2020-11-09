@@ -39,12 +39,12 @@
               <%= time_ago_in_words(production.created_at) %>前に投稿
             </div>
           </div>
+          <% if current_user.admin? || (current_user == production.user) %>
+            <div class="col-md-6">
+              <%= link_to "作品を削除する", production_path(production), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            </div>
+          <% end %>
         </div>
-        <% if current_user.admin? || (current_user == production.user) %>
-          <div class="col-md-6">
-            <%= link_to "作品を削除する", production_path(production), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>

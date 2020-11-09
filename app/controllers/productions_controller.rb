@@ -55,7 +55,7 @@ class ProductionsController < ApplicationController
     @production = Production.find(params[:id])
     if current_user.admin? || current_user?(@production.user)
       @production.destroy
-      flash[:success] = "作品が削除されました"
+      flash[:danger] = "作品が削除されました"
       redirect_to request.referrer == user_url(@production.user) ? user_url(@production.user) : root_url # rubocop:disable Metrics/LineLength
     else
       flash[:danger] = "他人の作品は削除できません"
