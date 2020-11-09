@@ -31,7 +31,7 @@ RSpec.describe "Productions", type: :system do
         expect(page).to have_content 'コツ・ポイント'
         expect(page).to have_content '作り方参照用URL'
         expect(page).to have_content '所要時間 [時間]'
-        expect(page).to have_content '人気度 [1~5]'
+        expect(page).to have_content '満足度 [1~5]'
         expect(page).to have_content 'メモ'
       end
 
@@ -49,7 +49,7 @@ RSpec.describe "Productions", type: :system do
         fill_in "コツ・ポイント", with: "SPF材と杉材を組み合わせることで、コントラストをつけました"
         fill_in "作り方参照用URL", with: "https://diy-recipe.com/recipe/3164/"
         fill_in "所要時間", with: 1
-        fill_in "人気度", with: 5
+        fill_in "満足度", with: 5
         attach_file "production[picture]", "#{Rails.root}/spec/fixtures/test_production.jpg"
         click_button "登録する"
         expect(page).to have_content "作品が登録されました！"
@@ -68,7 +68,7 @@ RSpec.describe "Productions", type: :system do
         fill_in "コツ・ポイント", with: "SPF材と杉材を組み合わせることで、コントラストをつけました"
         fill_in "作り方参照用URL", with: "https://diy-recipe.com/recipe/3164/"
         fill_in "所要時間", with: 1
-        fill_in "人気度", with: 5
+        fill_in "満足度", with: 5
         click_button "登録する"
         expect(page).to have_content "作品名を入力してください"
       end
@@ -96,7 +96,7 @@ RSpec.describe "Productions", type: :system do
         expect(page).to have_content 'コツ・ポイント'
         expect(page).to have_content '作り方参照用URL'
         expect(page).to have_content '所要時間 [時間]'
-        expect(page).to have_content '人気度 [1~5]'
+        expect(page).to have_content '満足度 [1~5]'
       end
 
       it "材料入力部分が10行表示されること" do
@@ -115,7 +115,7 @@ RSpec.describe "Productions", type: :system do
         fill_in "コツ・ポイント", with: "編集：SPF材と杉材を組み合わせることで、コントラストをつけました"
         fill_in "作り方参照用URL", with: "https://diy-recipe.com/recipe/3164/5"
         fill_in "所要時間", with: 2
-        fill_in "人気度", with: 3
+        fill_in "満足度", with: 3
         attach_file "production[picture]", "#{Rails.root}/spec/fixtures/test_production2.jpg"
         click_button "更新する"
         expect(page).to have_content "作品情報が更新されました！"

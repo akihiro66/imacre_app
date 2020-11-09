@@ -14,6 +14,7 @@
 }
 
 body {
+  font-size: 14px;
   padding-top: 80px;
   font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
@@ -21,10 +22,48 @@ body {
 main {
   padding: 0;
   margin: 0;
-  // background-color: #cd5c5c;
   color: #000;
   width: 100%;
   height: 100% !important;
+}
+
+// テキストの見栄え
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 36px;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
 
 // ログイン前のトップページ
@@ -55,6 +94,25 @@ input {
   height: auto !important;
 }
 
+#error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+  }
+
+  .form-control {
+    color: #a94442;
+  }
+}
+
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -62,6 +120,10 @@ input {
 
 #session_remember_me {
   width: auto;
+}
+
+label {
+  font-weight: bold;
 }
 
 //// ユーザー一覧ページ ////
@@ -72,7 +134,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #eaeaea;
   }
 }
 
@@ -171,6 +233,7 @@ span.picture {
 }
 
 h2.production-name {
+  color: #000;
   font-size: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -229,6 +292,7 @@ h2.production-name {
 
 .edit-production .delete-production {
   font-size: 15px;
+  margin: 5px;
 }
 
 .production-picture img {
@@ -403,7 +467,7 @@ a.unlist {
 
 //// 通知 ////
 // 新しい通知があるときは赤文字にする
-li.new_notification>a>span {
+li.new_notification>i.fa-bell a.nav-link {
   color: red;
 }
 
@@ -430,6 +494,7 @@ li.new_notification>a>span {
 .title-material-name,
 .title-material-amount {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .materials {
@@ -474,12 +539,12 @@ table.material tr:nth-child(odd) {
 }
 
 
-//// クックログとは？ページ ////
-// クックログとは？
+//// イマクリとは？ページ ////
+// イマクリとは？
 .title-about {
   padding: 0.5em;
-  background: #fef6f3;
-  border-left: solid 5px #F6A38B;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
 }
 
 // 主な使い方
@@ -487,6 +552,12 @@ table.material tr:nth-child(odd) {
   position: relative;
   padding-left: 25px;
   margin-top: 50px;
+}
+
+h2.title-use {
+  font-size: 30px;
+  text-align: left;
+  color: #000;
 }
 
 // 使い方A、B
@@ -504,7 +575,7 @@ ol.main-use li {
   margin: 7px 0 10px 30px;
   padding: 5px 0 5px 20px;
   font-weight: bold;
-  background: #fef6f3;
+  background: #f4f4f4;
 }
 
 ol.main-use li:before {
@@ -515,7 +586,7 @@ ol.main-use li:before {
   padding-top: 5px;
   text-align: center;
   color: #fff;
-  background: #F6A38B;
+  background: #7db4e6;
   top: 50%;
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -541,7 +612,7 @@ ol.main-use li:after {
   width: 0;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
-  border-left: 7px solid #F6A38B;
+  border-left: 7px solid #7db4e6;
   top: 50%;
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -552,7 +623,7 @@ ol.main-use li:after {
 
 // 中線
 .about-line {
-  border: dashed 1px #F6A38B;
+  border: dashed 1px #7db4e6;
   margin: 2em 0;
 }
 
@@ -566,7 +637,7 @@ ol.main-use li:after {
   height: 0;
   border: none;
   border-left: solid 15px transparent;
-  border-bottom: solid 15px #F6A38B;
+  border-bottom: solid 15px #7db4e6;
 }
 
 .title-use:after {
@@ -575,7 +646,7 @@ ol.main-use li:after {
   bottom: -3px;
   left: 10px;
   width: 100%;
-  border-bottom: solid 3px #F6A38B;
+  border-bottom: solid 3px #7db4e6;
 }
 
 .use-content {
@@ -597,7 +668,7 @@ ol.how-to-use li {
   font-weight: bold;
   font-size: 17px;
   line-height: 30px;
-  border-bottom: dashed 1px #F6A38B;
+  border-bottom: dashed 1px #7db4e6;
 }
 
 ol.how-to-use li:before {
@@ -609,7 +680,7 @@ ol.how-to-use li:before {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: #F6A38B;
+  background: #7db4e6;
   top: 50%;
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);

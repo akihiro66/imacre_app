@@ -30,8 +30,8 @@ RSpec.describe "Relationships", type: :system do
         expect(page).to have_content user.name
         expect(page).to have_link "プロフィール", href: user_path(user)
         expect(page).to have_content "作品#{user.productions.count}件"
-        expect(page).to have_link "#{user.following.count} フォロー", href: following_user_path(user)
-        expect(page).to have_link "#{user.followers.count} フォロワー", href: followers_user_path(user)
+        expect(page).to have_link "フォロー#{user.following.count}人", href: following_user_path(user)
+        expect(page).to have_link "フォロワー#{user.followers.count}人", href: followers_user_path(user)
       end
 
       it "フォロー中のユーザーが表示されていること" do
@@ -67,8 +67,8 @@ RSpec.describe "Relationships", type: :system do
         expect(page).to have_content user.name
         expect(page).to have_link "プロフィール", href: user_path(user)
         expect(page).to have_content "作品#{user.productions.count}件"
-        expect(page).to have_link "#{user.following.count} フォロー", href: following_user_path(user)
-        expect(page).to have_link "#{user.followers.count} フォロワー", href: followers_user_path(user)
+        expect(page).to have_link "フォロー#{user.following.count}人", href: following_user_path(user)
+        expect(page).to have_link "フォロワー#{user.followers.count}人", href: followers_user_path(user)
       end
 
       it "フォロワーが表示されていること" do

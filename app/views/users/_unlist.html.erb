@@ -1,8 +1,8 @@
 <% list = List.find_by(production_id: @production.id) %>
 <%= link_to "/lists/#{list.id}/destroy", method: :delete, class: 'unlist', remote: true do %>
   <% if current_user == @production.user %>
-    <div class="list-btn-unlist"><i class="fas fa-list-alt"></i> 制作予定リストに追加済み</div>
+    <div class="list-btn-unlist"><i class="fa fa-list-alt"></i> 制作予定リストに追加済み</div>
   <% else %>
-    <div class="list-btn-unlist"><i class="fas fa-hammer"></i> 制作依頼リクエスト済み</div>
+    <div class="list-btn-unlist"><i class="fa fa-hammer"></i> 制作依頼リクエスト済み</div>
   <% end %>
 <% end %>
