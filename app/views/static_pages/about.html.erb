@@ -1,4 +1,184 @@
 <% provide(:title, "イマクリとは？") %>
-<div class="container about">
-  <h1>イマクリとは？</h1>
-</div>
+<div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <h1 class="title-about">イマクリとは？ 　『想像』✖️『創造』</h1>
+        <h4>　DIY、ハンドメイド、リメイク等で自分が作った物【作品】を、写真・材料・メモなどの情報と共に
+            シェアする事で、作り方やアイデアの共有やユーザー同士のコミュニティになるアプリです。</h4>
+      </div>
+      <div class="col-md-10">
+        <h2 class="title-use">主な使い方</h2>
+        <div>
+          <ol class="main-use">
+            <li class="A">様々なユーザーの作品を共有し合う事で作りたい物のイメージを見つける</li>
+            <li class="B">作りたい人に教える人、作れない人に作ってあげる人を繋ぐコミュニティ</li>
+          </ol>
+        </div>
+        <p class="about-line"></p>
+        <ol class="main-use">
+          <li class="A">様々なユーザーの作品を共有し合う事で作りたい物のイメージを見つける</li>
+        </ol>
+        <div class="use-content">
+          <p>　　あなたの作りたい物や使いたい材料を元に、検索して探すことができます。</p>
+          <p>　　作りたい物や気に入ったイメージを見つけたら「お気に入り」に追加</p>
+          <p>　　必要な材料や作り方を参考にして、実際に作ってみましょう。</p>
+          <p>　　作った作品はどんどん登録して、あなたの作品をみんなに共有しましょう！</p>
+        </div>
+        <ol class="how-to-use">
+          <li>製作した作品を写真やメモと共に追加</li>
+          <div class="use-explanation">
+            <div class="row">
+              <div class="col-md-4">
+                <p>（1）「新しい作品を作る」をクリックします。</p>
+                <%= image_tag("/images/useA-1-1.jpg", :alt => "useA-1-1", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（2）作品情報を入力します。</p>
+                <%= image_tag("/images/useA-1-2.jpg", :alt => "useA-1-2", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（3）作品の登録が完了しました！</p>
+                <%= image_tag("/images/useA-1-3.jpg", :alt => "useA-1-3", class: "use-picture") %>
+              </div>
+              <div class="col-md-8">
+                <p>作品には下記の情報を登録することができます。</p>
+                <p>　・写真</p>
+                <p>　・作品名</p>
+                <p>　・説明</p>
+                <p>　・作り方参照用URL</p>
+                <p>　・材料（10種類まで）</p>
+                <p>　・材料費</p>
+                <p>　・コツ・ポイント</p>
+                <p>　・所要時間</p>
+                <p>　・満足度</p>
+                <p>　・メモ</p>
+              </div>
+            </div>
+          </div>
+          <li>作りたい作品を検索</li>
+          <div class="use-explanation">
+            <div class="row">
+              <div class="col-md-4">
+                <p>（1）検索バーを見つけます。</p>
+                <%= image_tag("/images/useA-5-1.jpg", :alt => "useA-5-1", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（2）探したい作品に関連するワード（例えば「テーブル」）を入力します。</p>
+                <%= image_tag("/images/useA-5-2.jpg", :alt => "useA-5-2", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（3）作品名か材料名に「テーブル」を含む作品の一覧が表示されます。</p>
+                <%= image_tag("/images/useA-5-3.jpg", :alt => "useA-5-3", class: "use-picture") %>
+              </div>
+            </div>
+          </div>
+          <li>気に入った作品を「お気に入りに登録」</li>
+          <div class="use-explanation">
+            <div class="row">
+              <div class="col-md-4">
+                <p>（1）「お気に入りに登録する」をクリックします。</p>
+                <%= image_tag("/images/useA-3-1.jpg", :alt => "useA-3-1", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（2）メニューから「お気に入り」をクリックします。</p>
+                <%= image_tag("/images/useA-3-2.jpg", :alt => "useA-3-2", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（3）お気に入り登録済みの作品を見ることができます。</p>
+                <%= image_tag("/images/useA-3-3.jpg", :alt => "useA-3-3", class: "use-picture") %>
+              </div>
+            </div>
+          </div>
+          <li>登録済みの作品をまた今度作ろうと思ったら「製作予定リスト」に追加</li>
+          <div class="use-explanation">
+            <div class="row">
+              <div class="col-md-4">
+                <p>（1）「製作予定リストに追加する」をクリックします。</p>
+                <%= image_tag("/images/useA-4-1.jpg", :alt => "useA-4-1", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（2）メニューから「製作予定リスト」をクリックします。</p>
+                <%= image_tag("/images/useA-4-2.jpg", :alt => "useA-4-2", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（3）製作予定リストに追加済みの作品を見ることができます。</p>
+                <%= image_tag("/images/useA-4-3.jpg", :alt => "useA-4-3", class: "use-picture") %>
+              </div>
+            </div>
+          </div>
+          <li>登録済みの作品をまた作ったら、製作記録を追加</li>
+          <div class="use-explanation">
+            <div class="row">
+              <div class="col-md-4">
+                <p>（1）製作する作品のページから、製作記録の追加をすることができます。</p>
+                <%= image_tag("/images/useA-2-1.jpg", :alt => "useA-2-1", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（2）製作記録メモに、作った感想・次回作るときのためにメモしておきたい内容を入力し、「製作記録の追加」をクリックします。</p>
+                <%= image_tag("/images/useA-2-2.jpg", :alt => "useA-2-2", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（3）製作記録が追加されます。</p>
+                <%= image_tag("/images/useA-2-3.jpg", :alt => "useA-2-3", class: "use-picture") %>
+              </div>
+            </div>
+          </div>
+        </ol>
+        <ol class="main-use">
+          <li class="B">作りたい人に教える人、作れない人に作ってあげる人を繋ぐコミュニティ</li>
+        </ol>
+        <div class="use-content">
+          <p>　　気になる作品の製作者をフォローすれば、作品レパートリーを一覧で見ることができます。</p>
+          <p>　　コメントで作品に対する評価をしたり、作り方のコツを教わったりできます。</p>
+          <p>　　自分には作れないけど作って欲しいときは「製作依頼リクエスト」を送れば、作品を作った人の</p>
+          <p>　　「製作予定リスト」に追加され、あなたの代わりに作ってくれるかもしれません！</p>
+        </div>
+        <ol class="how-to-use">
+          <li>作品にコメント（またはお気に入り登録）</li>
+          <div class="use-explanation">
+            <div class="row">
+              <div class="col-md-4">
+                <p>（1）作品詳細ページからコメントを入力します。</p>
+                <%= image_tag("/images/useB-1-1.jpg", :alt => "useB-1-1", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（2）コメントが追加されました！</p>
+                <%= image_tag("/images/useB-1-2.jpg", :alt => "useB-1-2", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（3）コメント追加（またはお気に入り登録）すると、作品を作った人の通知メニューが赤くなり通知されます。</p>
+                <%= image_tag("/images/useB-1-3.jpg", :alt => "useB-1-3", class: "use-picture") %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <p>（4）作品を作った人にお気に入り登録があった旨の通知が届いています。</p>
+                <%= image_tag("/images/useB-1-4.jpg", :alt => "useB-1-4", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（5）作品を作った人にコメントがあった旨の通知が届いています。　　　</p>
+                <%= image_tag("/images/useB-1-5.jpg", :alt => "useB-1-5", class: "use-picture") %>
+              </div>
+            </div>
+          </div>
+          <li>作品の製作者に「製作依頼リクエスト」を送る</li>
+          <div class="use-explanation">
+            <div class="row">
+              <div class="col-md-4">
+                <p>（1）作って欲しい作品の「製作依頼リクエストを送る」をクリックします。</p>
+                <%= image_tag("/images/useB-2-1.jpg", :alt => "useB-2-1", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（2）作品を作った人がメニューから「製作予定リスト」をクリックします。</p>
+                <%= image_tag("/images/useB-2-2.jpg", :alt => "useB-2-2", class: "use-picture") %>
+              </div>
+              <div class="col-md-4">
+                <p>（3）「製作依頼リクエスト」があったことがわかります。</p>
+                <%= image_tag("/images/useB-2-3.jpg", :alt => "useB-2-3", class: "use-picture") %>
+              </div>
+            </div>
+          </div>
+        </ol>
+      </div>
+    </div>
+  </div>
