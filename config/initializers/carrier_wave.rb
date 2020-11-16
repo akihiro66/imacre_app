@@ -7,5 +7,6 @@ if Rails.env.production?
       region: "ap-northeast-1",
     }
     config.fog_directory = "imacre"
+    config.asset_host = "https://static.ima-cre.com"
   end
 end
